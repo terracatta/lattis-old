@@ -1,6 +1,6 @@
 Lattis::Application.routes.draw do
   devise_for :users
-
+  match "/delayed_job" => DelayedJobWeb, :anchor => false
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

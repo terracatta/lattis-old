@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   # Returns a Delayed::Backend::ActiveRecord::Job if an email was queued
   # otherwise returns false
   def send_welcome_email
-    return false if self.sign_in_count > 0
+    return false if self.sign_in_count != 1
 
     Notifications.delay(queue: 'mail').welcome(user_id: self.id)
   end
