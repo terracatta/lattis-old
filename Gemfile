@@ -6,6 +6,12 @@ gem "devise", '~> 2.1'
 gem 'jquery-rails'
 gem 'pg', '~> 0.14'
 
+# Gems used only in our test or development environments
+
+group :test, :development do
+  gem 'faker'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
