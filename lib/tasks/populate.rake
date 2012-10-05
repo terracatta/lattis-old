@@ -8,6 +8,7 @@ namespace :db do
       user.first_name = Faker::Name.first_name
       user.last_name = Faker::Name.first_name
       user.password = Faker::Lorem.words.join
+
       user.email =
         "#{user.first_name.downcase}.#{user.last_name.downcase}@lattis.app"
       user.save
