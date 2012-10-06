@@ -6,6 +6,12 @@
   background-attachment: fixed;
   background-image: url('/assets/login_bg_medium.png');
   background-size: cover;
+
+
+  div.flash {
+    background: rgba(0,0,0, 0.5);
+  }
+
 }
 
 div.sign-in-container {

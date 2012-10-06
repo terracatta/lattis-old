@@ -15,6 +15,7 @@ div.flash {
   top: 0;
   left: 0;
   right: 0;
+  color: #fff;
 
   height: 45px;
   font-size: 24px;
@@ -22,7 +23,7 @@ div.flash {
   text-shadow: 0 1px 3px #000;
   padding-top: 15px;
   border-bottom: 1px solid rgba(0,0,0,0.3);
-  background: rgba(0,0,0, 0.5);
+  background: #565E6F;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

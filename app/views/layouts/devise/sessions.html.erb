@@ -7,11 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="sign-in">
-  <% flash.each do |key, message|  %>
-    <div class="flash <%= key %>" style="display:none;">
-      <%= message %> <span class="close">×</i>
-  </div>
-  <% end %>
+  <%= render 'layouts/flash', flash: flash %>
   <%= yield %>
 </body>
 </html>

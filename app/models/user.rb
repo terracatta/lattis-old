@@ -1,10 +1,19 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :lockable, :recoverable, :rememberable,
-   :trackable, :validatable
+  devise :database_authenticatable, :lockable, :recoverable, :trackable,
+   :validatable
 
-  after_save :send_welcome_email
+  before_save :send_welcome_email
 
-  private
+  # Public: Checks if user is enabled and thus allowed to login.
+  # This method extends devise's default functionality that is located
+  # in devise/lib/devise/models/authenticatable.rb
+  #
+  # Returns boolean true if the user can login otherwise false
+  def active_for_authentication?
+    super && enabled?
+  end
+
+private
 
   # Private: Sends a nice welcome email to the user if this is their first
   # time visiting the application. This method is suitable to be used on an
@@ -15,10 +24,13 @@ class User < ActiveRecord::Base
   # information.
   #
   # Returns a Delayed::Backend::ActiveRecord::Job if an email was queued
-  # otherwise returns false
+  # otherwise returns nil as to not halt saving
   def send_welcome_email
-    return false if self.sign_in_count != 1
+    unless self.welcomed? && sign_in_count > 0
+      self.welcomed = true
+      return Notifications.delay(queue: 'mail').welcome(user_id: self.id)
+    end
 
-    Notifications.delay(queue: 'mail').welcome(user_id: self.id)
+    nil
   end
 end

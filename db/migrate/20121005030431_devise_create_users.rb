@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :position
 
       t.boolean :admin, :null => false, :default => false
-      t.boolean :enabled, :null => false, :default => false
+      t.boolean :enabled, :null => false, :default => true
 
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
@@ -19,7 +19,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :reset_password_sent_at
 
       ## Rememberable
-      t.datetime :remember_created_at
+      # t.datetime :remember_created_at
 
       ## Trackable
       t.integer  :sign_in_count, :default => 0
