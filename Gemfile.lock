@@ -33,9 +33,6 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.3)
     cancan (1.6.8)
-    cancan_strong_parameters (0.1.1)
-      cancan
-      strong_parameters
     capistrano (2.13.4)
       highline
       net-scp (>= 1.0.0)
@@ -164,7 +161,6 @@ PLATFORMS
 
 DEPENDENCIES
   cancan (~> 1.6)
-  cancan_strong_parameters (~> 0.1)
   capistrano (~> 2.13)
   coffee-rails (~> 3.2.1)
   daemons (~> 1.1)
