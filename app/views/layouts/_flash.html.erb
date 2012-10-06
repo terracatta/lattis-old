@@ -1,0 +1,7 @@
+<% flash.each do |key, message|  %>
+  <% unless message.blank? %>
+    <div class="flash <%= key %>" style="display:none;">
+      <%= message %> <span class="close">×</i>
+    </div>
+  <% end %>
+<% end %>

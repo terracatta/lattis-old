@@ -26,6 +26,9 @@ center resource allocation.
 
 1. Browse to http://0.0.0.0:3000
 
+1. Login with the default administrator
+  account: admin.user@lattis.app password: lattis
+
 ## Deployment
 Lattis can be deployed to a vanilla Ubuntu server (that has a sudo user called
  "deploy" and ssh enabled) by running the following commands

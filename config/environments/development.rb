@@ -16,6 +16,9 @@ Lattis::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
+  # Open generated emails in the browser in development using letter opener gem
+  config.action_mailer.delivery_method = :letter_opener
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -28,6 +31,9 @@ Lattis::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # Used for devise and for absolute action mailer urls
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Do not compress assets
   config.assets.compress = false
