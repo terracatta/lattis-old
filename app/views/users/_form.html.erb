@@ -26,9 +26,16 @@
   </div>
 
   <div class="field">
-    <%= f.label :admin %><br />
-    <%= f.check_box :admin %>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
   </div>
+
+  <% if can? :set_admin, @user %>
+    <div class="field">
+      <%= f.label :admin %><br />
+      <%= f.check_box :admin %>
+    </div>
+  <% end %>
 
   <% if @user.id.nil? %>
     <div class="field"><%= f.label :password %><br />
@@ -37,7 +44,6 @@
     <div class="field"><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %></div>
   <% end %>
-
 
   <div class="actions">
     <%= f.submit %>
