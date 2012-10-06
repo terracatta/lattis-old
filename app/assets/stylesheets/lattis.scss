@@ -1,0 +1,152 @@
+body {
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+img.logo {
+  width: 130px;
+  position: relative;
+  top: 10px;
+  left: -1px;
+}
+
+div.flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+
+  height: 45px;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 0 1px 3px #000;
+  padding-top: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  background: #565E6F;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  -moz-box-shadow: 1px 0 6px rgba(0,0,0,0.9);
+  -webkit-box-shadow: 1px 0 6px rgba(0,0,0,0.9);
+  box-shadow: 1px 0 6px rgba(0,0,0,0.9);
+
+  span.close {
+    position: absolute;
+    display: inline-block;
+    right: 30px;
+    width: 23px;
+    top: 9px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+
+// Our basic button suitable for making things looks rather buttony
+//
+// :hover             - Subtle hover highlight.
+// :active            - What the button looks like clicked.
+// .bright            - Our bright attention getting button
+// .block             - Long button that takes up all the room!
+//
+// Styleguide 1.0.1
+
+a.button, button.button, input.button, input[type="submit"].button, {
+  cursor: pointer;
+  padding: 13px;
+  font-size: 14px;
+
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+
+  -webkit-box-shadow:  0 1px rgba(0,0,0, 0.2), inset 0 1px rgba(255,255,255, 0.8);
+  -moz-box-shadow:  0 1px rgba(0,0,0, 0.2), inset 0 1px rgba(255,255,255, 0.8);
+  box-shadow:  0 1px rgba(0,0,0, 0.2), inset 0 1px rgba(255,255,255, 0.8);
+
+  border: 1px solid #555;
+  color: #555;
+  text-shadow: 0 1px rgba(255,255,255, 0.5);
+
+  background: #f4f4f4;
+  background: -moz-linear-gradient(top,  #f4f4f4 0%, #a5a5a5 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#a5a5a5));
+  background: -webkit-linear-gradient(top,  #f4f4f4 0%,#a5a5a5 100%);
+  background: -o-linear-gradient(top,  #f4f4f4 0%,#a5a5a5 100%);
+  background: -ms-linear-gradient(top,  #f4f4f4 0%,#a5a5a5 100%);
+  background: linear-gradient(to bottom,  #f4f4f4 0%,#a5a5a5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#a5a5a5',GradientType=0 );
+
+  &:hover {
+   color: #333;
+   background: #e5e5e5;
+   background: -moz-linear-gradient(top,  #e5e5e5 0%, #939393 100%);
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#939393));
+   background: -webkit-linear-gradient(top,  #e5e5e5 0%,#939393 100%);
+   background: -o-linear-gradient(top,  #e5e5e5 0%,#939393 100%);
+   background: -ms-linear-gradient(top,  #e5e5e5 0%,#939393 100%);
+   background: linear-gradient(to bottom,  #e5e5e5 0%,#939393 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#939393',GradientType=0 );
+  }
+
+  &:active {
+    color: #777;
+    background: #b5b5b5;
+    background: -moz-linear-gradient(top,  #b5b5b5 0%, #dbdbdb 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5b5b5), color-stop(100%,#dbdbdb));
+    background: -webkit-linear-gradient(top,  #b5b5b5 0%,#dbdbdb 100%);
+    background: -o-linear-gradient(top,  #b5b5b5 0%,#dbdbdb 100%);
+    background: -ms-linear-gradient(top,  #b5b5b5 0%,#dbdbdb 100%);
+    background: linear-gradient(to bottom,  #b5b5b5 0%,#dbdbdb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5b5b5', endColorstr='#dbdbdb',GradientType=0 );
+
+    -webkit-box-shadow:  0 1px rgba(230,230,230, 0.3), inset 0 1px #000;
+    -moz-box-shadow:  0 1px rgba(255,255,255, 0.2), inset 0 1px #000;
+    box-shadow:  0 1px rgba(255,255,255, 0.3), 1px 0px rgba(230,230,230, 0.1), -1px 0px rgba(230,230,230, 0.1), inset 0 1px rgba(0,0,0,0.3), inset 1px 1px 8px rgba(0,0,0, 0.5);
+  }
+
+  &.bright {
+    color: #fff;
+    text-shadow: 0 1px 2px #000;
+    background: #f47b32;
+    background: -moz-linear-gradient(top,  #f47b32 33%, #cf2527 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(33%,#f47b32), color-stop(100%,#cf2527));
+    background: -webkit-linear-gradient(top,  #f47b32 33%,#cf2527 100%);
+    background: -o-linear-gradient(top,  #f47b32 33%,#cf2527 100%);
+    background: -ms-linear-gradient(top,  #f47b32 33%,#cf2527 100%);
+    background: linear-gradient(to bottom,  #f47b32 33%,#cf2527 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f47b32', endColorstr='#cf2527',GradientType=0 );
+  }
+
+  &.bright:hover {
+    color: #f2e8e7;
+    background: #f2691a;
+    background: -moz-linear-gradient(top,  #f2691a 33%, #ce1414 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(33%,#f2691a), color-stop(100%,#ce1414));
+    background: -webkit-linear-gradient(top,  #f2691a 33%,#ce1414 100%);
+    background: -o-linear-gradient(top,  #f2691a 33%,#ce1414 100%);
+    background: -ms-linear-gradient(top,  #f2691a 33%,#ce1414 100%);
+    background: linear-gradient(to bottom,  #f2691a 33%,#ce1414 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2691a', endColorstr='#ce1414',GradientType=0 );
+  }
+
+  &.bright:active {
+    color: #e5ceca;
+    background: #ef512d;
+    background: -moz-linear-gradient(top,  #ef512d 33%, #ef692b 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(33%,#ef512d), color-stop(100%,#ef692b));
+    background: -webkit-linear-gradient(top,  #ef512d 33%,#ef692b 100%);
+    background: -o-linear-gradient(top,  #ef512d 33%,#ef692b 100%);
+    background: -ms-linear-gradient(top,  #ef512d 33%,#ef692b 100%);
+    background: linear-gradient(to bottom,  #ef512d 33%,#ef692b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef512d', endColorstr='#ef692b',GradientType=0 );
+  }
+
+  &.block {
+    width: 100%;
+    display: block;
+  }
+}

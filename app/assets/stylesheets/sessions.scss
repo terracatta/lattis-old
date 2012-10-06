@@ -1,0 +1,90 @@
+#sign-in {
+  color: white;
+  background-color: #ADBCE4;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  background-image: url('/assets/login_bg_medium.png');
+  background-size: cover;
+
+
+  div.flash {
+    background: rgba(0,0,0, 0.5);
+  }
+
+}
+
+div.sign-in-container {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+
+  form label[for="user_email"], form label[for="user_password"] {
+    display: none;
+  }
+
+  form div.sign-in {
+    margin: 33px 0;
+  }
+
+  form input[type="password"], form input[type="text"] {
+    &::-webkit-input-placeholder {
+      color:    #fafafa;
+      font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    &:-moz-placeholder {
+      color:    #fafafa;
+      font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    &:-ms-input-placeholder {
+      color:    #fafafa;
+      font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    &::input-placeholder {
+      color:    #fafafa;
+      font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    &:focus {
+      outline: none;
+      background: #eee;
+      color: #666;
+      border: 1px solid rgba(0,0,0,0.4);
+
+      -moz-box-shadow: inset 0 0 0 1px rgba(255,255,255,1), 0 1px rgba(255,255,255,0.2);
+      -webkit-box-shadow: inset 0 0 0 1px rgba(255,255,255,1), 0 1px rgba(255,255,255,0.2);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,1), 0 1px rgba(255,255,255,0.2);
+
+      &::-webkit-input-placeholder {
+        color: #999;
+      }
+    }
+    font-size: 16px;
+    display: block;
+    width: 272px;
+    line-height: 18px;
+    color: #fff;
+    padding: 12px;
+    border-radius: 2px;
+
+    -moz-box-shadow: 0 1px rgba(255,255,255,0.4), inset 1px 1px 7px rgba(0,0,0, 0.2);
+    -webkit-box-shadow: 0 1px rgba(255,255,255,0.4), inset 1px 1px 7px rgba(0,0,0, 0.2);
+    box-shadow: 0 1px rgba(255,255,255,0.4), inset 1px 1px 7px rgba(0,0,0, 0.2);
+
+    background: rgba(0,0,0,0.08);
+    border-top: 1px solid #000;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+}
