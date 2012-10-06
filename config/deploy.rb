@@ -8,6 +8,8 @@ load "config/recipes/ruby"
 load "config/recipes/apache"
 load "config/recipes/postgresql"
 load "config/recipes/nodejs"
+load "config/recipes/passenger"
+
 
 set(:deploy_server,
   Capistrano::CLI.ui.ask("FQDN (Not IP) of server you are actioning: "))
@@ -37,4 +39,4 @@ end
 
 after "deploy:update_code", "deploy:migrate"
 after "deploy:migrate", "deploy:seed" # seed file always be safe to re-run
-after "deploy", "deploy:cleanup" # keep only the last 5 releases
+after "deploy", "delayed_job:restart", "deploy:restart", "deploy:cleanup"
