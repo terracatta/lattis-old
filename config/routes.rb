@@ -1,6 +1,20 @@
 Lattis::Application.routes.draw do
   devise_for :users
-  match "/delayed_job" => DelayedJobWeb, :anchor => false
+
+  #
+  # Only allow delayed_jobs if you are an administrator
+  #
+  constraints CanAccessDelayedJobs do
+      match "/admin/jobs" => DelayedJobWeb, :anchor => false
+  end
+
+  resources :users do
+    member do
+      get 'change_password'
+      put 'update_password'
+    end
+  end
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:
