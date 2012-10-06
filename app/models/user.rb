@@ -4,6 +4,17 @@ class User < ActiveRecord::Base
 
   before_save :send_welcome_email
 
+  def to_s
+    name
+  end
+
+  # Public: Displays a suitable full name for a user
+  #
+  # Returns a string of the users first name and last name
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   # Public: Checks if user is enabled and thus allowed to login.
   # This method extends devise's default functionality that is located
   # in devise/lib/devise/models/authenticatable.rb

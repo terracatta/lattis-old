@@ -8,6 +8,8 @@ Lattis::Application.routes.draw do
       match "/admin/jobs" => DelayedJobWeb, :anchor => false
   end
 
+  resources :users
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:
