@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
+gem 'cancan', '~> 1.6'
 gem 'capistrano', '~> 2.13'
 gem 'daemons', '~> 1.1'
 gem 'delayed_job_active_record', '~> 0.3'
