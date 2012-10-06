@@ -8,7 +8,12 @@ Lattis::Application.routes.draw do
       match "/admin/jobs" => DelayedJobWeb, :anchor => false
   end
 
-  resources :users
+  resources :users do
+    member do
+      get 'change_password'
+      put 'update_password'
+    end
+  end
 
   root :to => 'pages#home'
 

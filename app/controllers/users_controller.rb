@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
 
+  skip_before_filter :check_for_password_reset,
+     :only => [:change_password,:update_password]
+
   # GET /users
   # GET /users.json
   def index
@@ -61,11 +64,30 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(permitted_params.user(@user))
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /users/1/update_password
+  def update_password
+    @user = User.find(current_user.id)
+
+    respond_to do |format|
+      if @user.update_with_password(permitted_params.user(@user))
+        # Sign in the user by passing validation in case his password changed
+        @user.update_attributes(needs_password_reset: false)
+        sign_in @user, :bypass => true
+        format.html { redirect_to :back,
+         notice: "User's password was successfully changed" }
+        format.json { head :no_content }
+      else
+        format.html { render action: "change_password" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

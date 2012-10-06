@@ -1,8 +1,22 @@
 class User < ActiveRecord::Base
+  include ActiveModel::ForbiddenAttributesProtection
+  include Gravtastic
+
   devise :database_authenticatable, :lockable, :recoverable, :trackable,
    :validatable
 
+  has_gravatar secure: true, filetype: :png, size: 256, default: :retro
+
   before_save :send_welcome_email
+
+  # Public: Load/Cache user's abilities object. This is useful so that we can
+  # call "can?" and "cannot?" on users directly.
+  #
+  # Returns an instance variable of the user's abilities in an Ability object
+  delegate :can?, :cannot?, :to => :ability
+  def ability
+    @ability ||= Ability.new(self)
+  end
 
   def to_s
     name
