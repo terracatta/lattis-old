@@ -9,6 +9,20 @@ class User < ActiveRecord::Base
 
   before_save :send_welcome_email
 
+  has_many :enrollments
+  has_many :stimulation_sessions
+  has_many :stimulation_device_sessions
+  has_many :stimulations
+  has_many :scan_sessions
+  has_many :scans
+  has_many :exams
+
+  has_many :studies, through: :study_staff
+  has_many :study_staff
+
+  belongs_to :staff_position
+  belongs_to :role
+
   # Public: Load/Cache user's abilities object. This is useful so that we can
   # call "can?" and "cannot?" on users directly.
   #

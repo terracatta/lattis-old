@@ -1,0 +1,2 @@
+module ScanSubTypesHelper
+end

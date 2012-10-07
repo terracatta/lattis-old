@@ -1,0 +1,57 @@
+<%= form_for(@scan) do |f| %>
+  <% if @scan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scan.errors.count, "error") %> prohibited this scan from being saved:</h2>
+
+      <ul>
+      <% @scan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :visit_id %><br />
+    <%= f.number_field :visit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :location_id %><br />
+    <%= f.number_field :location_id %>
+  </div>
+  <div class="field">
+    <%= f.label :study_id %><br />
+    <%= f.number_field :study_id %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br />
+    <%= f.number_field :subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :scan_type_id %><br />
+    <%= f.number_field :scan_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :scan_sub_type_id %><br />
+    <%= f.number_field :scan_sub_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :scan_format_id %><br />
+    <%= f.number_field :scan_format_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :file %><br />
+    <%= f.text_field :file %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

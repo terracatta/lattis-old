@@ -1,0 +1,101 @@
+<%= form_for(@stimulation) do |f| %>
+  <% if @stimulation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stimulation.errors.count, "error") %> prohibited this stimulation from being saved:</h2>
+
+      <ul>
+      <% @stimulation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br />
+    <%= f.number_field :subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :study_id %><br />
+    <%= f.number_field :study_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stimulation_type_id %><br />
+    <%= f.number_field :stimulation_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stimulation_sub_sub_type_id %><br />
+    <%= f.number_field :stimulation_sub_sub_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stimulation_device_session_id %><br />
+    <%= f.number_field :stimulation_device_session_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stimulation_session_id %><br />
+    <%= f.number_field :stimulation_session_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sham %><br />
+    <%= f.check_box :sham %>
+  </div>
+  <div class="field">
+    <%= f.label :brain_area_id %><br />
+    <%= f.number_field :brain_area_id %>
+  </div>
+  <div class="field">
+    <%= f.label :intensity %><br />
+    <%= f.text_field :intensity %>
+  </div>
+  <div class="field">
+    <%= f.label :paired_pulse_intensity %><br />
+    <%= f.text_field :paired_pulse_intensity %>
+  </div>
+  <div class="field">
+    <%= f.label :frequency %><br />
+    <%= f.number_field :frequency %>
+  </div>
+  <div class="field">
+    <%= f.label :interpulse_interval %><br />
+    <%= f.text_field :interpulse_interval %>
+  </div>
+  <div class="field">
+    <%= f.label :interburst_interval %><br />
+    <%= f.text_field :interburst_interval %>
+  </div>
+  <div class="field">
+    <%= f.label :intertrain_interval %><br />
+    <%= f.text_field :intertrain_interval %>
+  </div>
+  <div class="field">
+    <%= f.label :trains_count %><br />
+    <%= f.number_field :trains_count %>
+  </div>
+  <div class="field">
+    <%= f.label :pulses_per_train %><br />
+    <%= f.number_field :pulses_per_train %>
+  </div>
+  <div class="field">
+    <%= f.label :bursts_per_train %><br />
+    <%= f.number_field :bursts_per_train %>
+  </div>
+  <div class="field">
+    <%= f.label :pulses_per_burst %><br />
+    <%= f.number_field :pulses_per_burst %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br />
+    <%= f.text_field :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :neuro_navigation_used %><br />
+    <%= f.check_box :neuro_navigation_used %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<h1>Listing enrollments</h1>
+
+<table>
+  <tr>
+    <th>Study</th>
+    <th>User</th>
+    <th>Subject</th>
+    <th>Visit</th>
+    <th>Enrollment start date</th>
+    <th>Enrollment end date</th>
+    <th>Enrollment status</th>
+    <th>Enrollment status comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @enrollments.each do |enrollment| %>
+  <tr>
+    <td><%= enrollment.study_id %></td>
+    <td><%= enrollment.user_id %></td>
+    <td><%= enrollment.subject_id %></td>
+    <td><%= enrollment.visit_id %></td>
+    <td><%= enrollment.enrollment_start_date %></td>
+    <td><%= enrollment.enrollment_end_date %></td>
+    <td><%= enrollment.enrollment_status %></td>
+    <td><%= enrollment.enrollment_status_comment %></td>
+    <td><%= link_to 'Show', enrollment %></td>
+    <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
+    <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Enrollment', new_enrollment_path %>

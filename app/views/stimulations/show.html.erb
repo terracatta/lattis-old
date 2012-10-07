@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @stimulation.date %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @stimulation.subject_id %>
+</p>
+
+<p>
+  <b>Study:</b>
+  <%= @stimulation.study_id %>
+</p>
+
+<p>
+  <b>Stimulation type:</b>
+  <%= @stimulation.stimulation_type_id %>
+</p>
+
+<p>
+  <b>Stimulation sub sub type:</b>
+  <%= @stimulation.stimulation_sub_sub_type_id %>
+</p>
+
+<p>
+  <b>Stimulation device session:</b>
+  <%= @stimulation.stimulation_device_session_id %>
+</p>
+
+<p>
+  <b>Stimulation session:</b>
+  <%= @stimulation.stimulation_session_id %>
+</p>
+
+<p>
+  <b>Sham:</b>
+  <%= @stimulation.sham %>
+</p>
+
+<p>
+  <b>Brain area:</b>
+  <%= @stimulation.brain_area_id %>
+</p>
+
+<p>
+  <b>Intensity:</b>
+  <%= @stimulation.intensity %>
+</p>
+
+<p>
+  <b>Paired pulse intensity:</b>
+  <%= @stimulation.paired_pulse_intensity %>
+</p>
+
+<p>
+  <b>Frequency:</b>
+  <%= @stimulation.frequency %>
+</p>
+
+<p>
+  <b>Interpulse interval:</b>
+  <%= @stimulation.interpulse_interval %>
+</p>
+
+<p>
+  <b>Interburst interval:</b>
+  <%= @stimulation.interburst_interval %>
+</p>
+
+<p>
+  <b>Intertrain interval:</b>
+  <%= @stimulation.intertrain_interval %>
+</p>
+
+<p>
+  <b>Trains count:</b>
+  <%= @stimulation.trains_count %>
+</p>
+
+<p>
+  <b>Pulses per train:</b>
+  <%= @stimulation.pulses_per_train %>
+</p>
+
+<p>
+  <b>Bursts per train:</b>
+  <%= @stimulation.bursts_per_train %>
+</p>
+
+<p>
+  <b>Pulses per burst:</b>
+  <%= @stimulation.pulses_per_burst %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @stimulation.duration %>
+</p>
+
+<p>
+  <b>Neuro navigation used:</b>
+  <%= @stimulation.neuro_navigation_used %>
+</p>
+
+
+<%= link_to 'Edit', edit_stimulation_path(@stimulation) %> |
+<%= link_to 'Back', stimulations_path %>

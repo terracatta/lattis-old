@@ -1,0 +1,39 @@
+<h1>Listing stimulation_device_sessions</h1>
+
+<table>
+  <tr>
+    <th>Stimulation session</th>
+    <th>Stimulator</th>
+    <th>Stimulator model</th>
+    <th>Coil</th>
+    <th>Coil model</th>
+    <th>Subject</th>
+    <th>Study</th>
+    <th>User</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stimulation_device_sessions.each do |stimulation_device_session| %>
+  <tr>
+    <td><%= stimulation_device_session.stimulation_session_id %></td>
+    <td><%= stimulation_device_session.stimulator_id %></td>
+    <td><%= stimulation_device_session.stimulator_model_id %></td>
+    <td><%= stimulation_device_session.coil_id %></td>
+    <td><%= stimulation_device_session.coil_model_id %></td>
+    <td><%= stimulation_device_session.subject_id %></td>
+    <td><%= stimulation_device_session.study_id %></td>
+    <td><%= stimulation_device_session.user_id %></td>
+    <td><%= stimulation_device_session.date %></td>
+    <td><%= link_to 'Show', stimulation_device_session %></td>
+    <td><%= link_to 'Edit', edit_stimulation_device_session_path(stimulation_device_session) %></td>
+    <td><%= link_to 'Destroy', stimulation_device_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stimulation device session', new_stimulation_device_session_path %>

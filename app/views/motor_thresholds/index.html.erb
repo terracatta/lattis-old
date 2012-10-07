@@ -1,0 +1,35 @@
+<h1>Listing motor_thresholds</h1>
+
+<table>
+  <tr>
+    <th>Variety</th>
+    <th>Stimulator</th>
+    <th>Coil</th>
+    <th>Intensity</th>
+    <th>Determination</th>
+    <th>Stimulation session</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @motor_thresholds.each do |motor_threshold| %>
+  <tr>
+    <td><%= motor_threshold.variety %></td>
+    <td><%= motor_threshold.stimulator_id %></td>
+    <td><%= motor_threshold.coil_id %></td>
+    <td><%= motor_threshold.intensity %></td>
+    <td><%= motor_threshold.determination %></td>
+    <td><%= motor_threshold.stimulation_session_id %></td>
+    <td><%= motor_threshold.date %></td>
+    <td><%= link_to 'Show', motor_threshold %></td>
+    <td><%= link_to 'Edit', edit_motor_threshold_path(motor_threshold) %></td>
+    <td><%= link_to 'Destroy', motor_threshold, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Motor threshold', new_motor_threshold_path %>

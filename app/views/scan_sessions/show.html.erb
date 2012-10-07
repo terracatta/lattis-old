@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit:</b>
+  <%= @scan_session.visit_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @scan_session.user_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @scan_session.subject_id %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @scan_session.location_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_scan_session_path(@scan_session) %> |
+<%= link_to 'Back', scan_sessions_path %>

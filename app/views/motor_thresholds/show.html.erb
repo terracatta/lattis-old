@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Variety:</b>
+  <%= @motor_threshold.variety %>
+</p>
+
+<p>
+  <b>Stimulator:</b>
+  <%= @motor_threshold.stimulator_id %>
+</p>
+
+<p>
+  <b>Coil:</b>
+  <%= @motor_threshold.coil_id %>
+</p>
+
+<p>
+  <b>Intensity:</b>
+  <%= @motor_threshold.intensity %>
+</p>
+
+<p>
+  <b>Determination:</b>
+  <%= @motor_threshold.determination %>
+</p>
+
+<p>
+  <b>Stimulation session:</b>
+  <%= @motor_threshold.stimulation_session_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @motor_threshold.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_motor_threshold_path(@motor_threshold) %> |
+<%= link_to 'Back', motor_thresholds_path %>

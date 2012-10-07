@@ -1,4 +1,52 @@
 Lattis::Application.routes.draw do
+  resources :scan_sub_types
+
+  resources :visits
+
+  resources :device_models
+
+  resources :devices
+
+  resources :brain_areas
+
+  resources :task_types
+
+  resources :studies
+
+  resources :stimulations
+
+  resources :stimulation_types
+
+  resources :stimulation_sub_types
+
+  resources :stimulation_sub_sub_types
+
+  resources :stimulation_sessions
+
+  resources :stimulation_device_sessions
+
+  resources :scans
+
+  resources :scan_types
+
+  resources :scan_sessions
+
+  resources :scan_formats
+
+  resources :races
+
+  resources :populations
+
+  resources :motor_thresholds
+
+  resources :locations
+
+  resources :exams
+
+  resources :ethnicities
+
+  resources :enrollments
+
   devise_for :users
 
   #

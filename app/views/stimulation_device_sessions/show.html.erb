@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Stimulation session:</b>
+  <%= @stimulation_device_session.stimulation_session_id %>
+</p>
+
+<p>
+  <b>Stimulator:</b>
+  <%= @stimulation_device_session.stimulator_id %>
+</p>
+
+<p>
+  <b>Stimulator model:</b>
+  <%= @stimulation_device_session.stimulator_model_id %>
+</p>
+
+<p>
+  <b>Coil:</b>
+  <%= @stimulation_device_session.coil_id %>
+</p>
+
+<p>
+  <b>Coil model:</b>
+  <%= @stimulation_device_session.coil_model_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @stimulation_device_session.subject_id %>
+</p>
+
+<p>
+  <b>Study:</b>
+  <%= @stimulation_device_session.study_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @stimulation_device_session.user_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @stimulation_device_session.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_stimulation_device_session_path(@stimulation_device_session) %> |
+<%= link_to 'Back', stimulation_device_sessions_path %>
