@@ -87,6 +87,6 @@ class DeviceModelsController < ApplicationController
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def device_model_params
-      params.require(:device_model).permit(:coil_id, :coil_model_id, :device_id, :name, :serial, :stimulator_id, :stimulator_model_id, :type)
+      params.require(:device_model).permit(:name, :type)
     end
 end

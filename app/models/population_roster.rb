@@ -1,3 +1,4 @@
 class PopulationRoster < ActiveRecord::Base
-  attr_accessible :population_id, :subject_id
+  belongs_to :population
+  belongs_to :subject
 end

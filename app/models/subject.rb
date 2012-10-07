@@ -1,3 +1,28 @@
 class Subject < ActiveRecord::Base
-  attr_accessible :address, :address2, :age, :city, :contactable, :date_of_birth, :ethnicity_id, :first_name, :gender, :handedness, :height, :last_name, :mrn, :phone, :race_id, :scan_sessions_count, :scans_count, :secondary_phone, :stimulation_sessions_count, :stimulations_count, :tms_safe, :tms_safe_comment, :visits_count, :weight, :zipcode
+  has_many :stimulations
+  has_many :stimulation_types, through: :stimulations, uniq: true
+  has_many :stimulation_sub_types, through: :stimulations, uniq: true
+  has_many :stimulation_sub_sub_types, through: :stimulations, uniq: true
+  has_many :stimulation_device_sessions
+  has_many :stimulation_sessions
+
+  has_many :scans
+  has_many :scan_types, through: :scans, uniq: true
+  has_many :scan_sub_types, through: :scans, uniq: true
+  has_many :scan_sessions
+
+  has_many :exams
+  has_many :visits
+
+  has_many :studies, through: :enrollments
+  has_many :enrollments
+
+  has_many :populations, through: :population_rosters
+  has_many :population_rosters
+
+  has_many :task_types, through: :tasks, uniq: true
+  has_many :tasks
+
+  belongs_to :ethnicity
+  belongs_to :race
 end

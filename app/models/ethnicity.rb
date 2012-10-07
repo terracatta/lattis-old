@@ -1,3 +1,4 @@
 class Ethnicity < ActiveRecord::Base
-  attr_accessible :name
+  has_many :subjects
+  validates :name, presence: true
 end

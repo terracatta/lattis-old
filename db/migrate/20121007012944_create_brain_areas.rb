@@ -3,7 +3,7 @@ class CreateBrainAreas < ActiveRecord::Migration
     create_table :brain_areas do |t|
       t.string :name
       t.string :short_name
-      t.boolean :left_hemisphere
+      t.string :hemisphere
 
       t.timestamps
     end

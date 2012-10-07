@@ -4,12 +4,6 @@
   <tr>
     <th>Name</th>
     <th>Type</th>
-    <th>Serial</th>
-    <th>Device</th>
-    <th>Stimulator</th>
-    <th>Coil</th>
-    <th>Stimulator model</th>
-    <th>Coil model</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,12 +13,6 @@
   <tr>
     <td><%= device_model.name %></td>
     <td><%= device_model.type %></td>
-    <td><%= device_model.serial %></td>
-    <td><%= device_model.device_id %></td>
-    <td><%= device_model.stimulator_id %></td>
-    <td><%= device_model.coil_id %></td>
-    <td><%= device_model.stimulator_model_id %></td>
-    <td><%= device_model.coil_model_id %></td>
     <td><%= link_to 'Show', device_model %></td>
     <td><%= link_to 'Edit', edit_device_model_path(device_model) %></td>
     <td><%= link_to 'Destroy', device_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>

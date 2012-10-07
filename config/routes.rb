@@ -1,4 +1,12 @@
 Lattis::Application.routes.draw do
+  resources :visits
+
+  resources :device_models
+
+  resources :devices
+
+  resources :brain_areas
+
   resources :task_types
 
   resources :studies
@@ -36,12 +44,6 @@ Lattis::Application.routes.draw do
   resources :ethnicities
 
   resources :enrollments
-
-  resources :devices
-
-  resources :device_models
-
-  resources :brain_areas
 
   devise_for :users
 

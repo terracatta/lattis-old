@@ -87,6 +87,6 @@ class BrainAreasController < ApplicationController
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def brain_area_params
-      params.require(:brain_area).permit(:left_hemisphere, :name, :short_name)
+      params.require(:brain_area).permit(:hemisphere, :name, :short_name)
     end
 end

@@ -1,3 +1,7 @@
 class StimulationDeviceSession < ActiveRecord::Base
-  attr_accessible :coil_id, :coil_model_id, :date, :stimulation_session_id, :stimulator_id, :stimulator_model_id, :study_id, :subject_id, :user_id
+  has_many :stimulations
+  belongs_to :stimulation_session
+  belongs_to :stimulator
+  belongs_to :coil
+  belongs_to :subject, counter_cache: true
 end

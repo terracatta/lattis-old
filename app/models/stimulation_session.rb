@@ -1,3 +1,8 @@
 class StimulationSession < ActiveRecord::Base
-  attr_accessible :cnbs_staff_used, :date, :location_id, :neuro_navigation_used, :study_id, :subject_id, :user_id, :visit_id
+  has_many :stimulation_device_sessions
+  belongs_to :visit
+  belongs_to :subject, counter_cache: true
+  belongs_to :study
+  belongs_to :staff
+  belongs_to :location
 end

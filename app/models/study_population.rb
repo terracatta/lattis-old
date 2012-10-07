@@ -1,3 +1,4 @@
 class StudyPopulation < ActiveRecord::Base
-  attr_accessible :population_id, :study_id
+  belongs_to :study
+  belongs_to :population
 end

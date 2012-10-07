@@ -1,3 +1,6 @@
 class ScanType < ActiveRecord::Base
-  attr_accessible :description, :name
+  has_many :scan_sub_types
+  has_many :scans
+
+  validates :name, presence: true
 end

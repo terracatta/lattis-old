@@ -1,3 +1,4 @@
 class Location < ActiveRecord::Base
-  attr_accessible :building_name, :floor_number, :key_number, :name, :phone, :room_string
+  has_many :scans
+  has_many :stimulations
 end
