@@ -1,4 +1,6 @@
 class ScanSubTypesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /scan_sub_types
   # GET /scan_sub_types.json
   def index

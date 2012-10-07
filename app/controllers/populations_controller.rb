@@ -1,4 +1,6 @@
 class PopulationsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /populations
   # GET /populations.json
   def index

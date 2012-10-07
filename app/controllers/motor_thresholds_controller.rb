@@ -1,4 +1,6 @@
 class MotorThresholdsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /motor_thresholds
   # GET /motor_thresholds.json
   def index

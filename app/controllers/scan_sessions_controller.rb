@@ -1,4 +1,6 @@
 class ScanSessionsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /scan_sessions
   # GET /scan_sessions.json
   def index

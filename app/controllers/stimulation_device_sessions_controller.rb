@@ -1,4 +1,6 @@
 class StimulationDeviceSessionsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /stimulation_device_sessions
   # GET /stimulation_device_sessions.json
   def index

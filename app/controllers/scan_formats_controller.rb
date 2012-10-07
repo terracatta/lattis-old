@@ -1,4 +1,6 @@
 class ScanFormatsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /scan_formats
   # GET /scan_formats.json
   def index

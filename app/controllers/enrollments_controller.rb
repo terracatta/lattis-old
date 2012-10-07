@@ -1,4 +1,6 @@
 class EnrollmentsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /enrollments
   # GET /enrollments.json
   def index

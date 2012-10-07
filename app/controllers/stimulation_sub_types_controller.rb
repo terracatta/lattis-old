@@ -1,4 +1,6 @@
 class StimulationSubTypesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /stimulation_sub_types
   # GET /stimulation_sub_types.json
   def index

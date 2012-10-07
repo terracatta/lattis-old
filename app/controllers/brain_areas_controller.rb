@@ -1,4 +1,6 @@
 class BrainAreasController < ApplicationController
+  load_and_authorize_resource
+
   # GET /brain_areas
   # GET /brain_areas.json
   def index

@@ -1,4 +1,6 @@
 class TaskTypesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /task_types
   # GET /task_types.json
   def index
