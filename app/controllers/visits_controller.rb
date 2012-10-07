@@ -80,13 +80,4 @@ class VisitsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def params[:visit]
-      params.require(:visit).permit(:date, :study_id, :subject_id)
-    end
 end
