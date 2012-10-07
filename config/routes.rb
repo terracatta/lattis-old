@@ -1,4 +1,6 @@
 Lattis::Application.routes.draw do
+  resources :scan_sub_types
+
   resources :visits
 
   resources :device_models

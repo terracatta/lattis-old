@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :name
       t.string :building_name
       t.string :floor_number
-      t.string :room_string
+      t.string :room_number
       t.string :key_number
       t.string :phone
 

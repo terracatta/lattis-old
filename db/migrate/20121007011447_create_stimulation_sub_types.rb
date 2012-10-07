@@ -5,11 +5,12 @@ class CreateStimulationSubTypes < ActiveRecord::Migration
       t.integer :stimulation_type_id
       t.float :interpulse_interval
       t.float :interburst_interval
-      t.float :intertain_interval
+      t.float :intertrain_interval
       t.float :frequency
       t.integer :trains_count
       t.integer :pulses_per_train
       t.integer :bursts_per_train
+      t.integer  :pulses_per_burst
 
       t.timestamps
     end
