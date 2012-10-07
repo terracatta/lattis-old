@@ -1,0 +1,49 @@
+<%= form_for(@stimulation_type) do |f| %>
+  <% if @stimulation_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stimulation_type.errors.count, "error") %> prohibited this stimulation_type from being saved:</h2>
+
+      <ul>
+      <% @stimulation_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :interpulse_interval %><br />
+    <%= f.text_field :interpulse_interval %>
+  </div>
+  <div class="field">
+    <%= f.label :interburst_interval %><br />
+    <%= f.text_field :interburst_interval %>
+  </div>
+  <div class="field">
+    <%= f.label :intertain_interval %><br />
+    <%= f.text_field :intertain_interval %>
+  </div>
+  <div class="field">
+    <%= f.label :frequency %><br />
+    <%= f.text_field :frequency %>
+  </div>
+  <div class="field">
+    <%= f.label :trains_count %><br />
+    <%= f.number_field :trains_count %>
+  </div>
+  <div class="field">
+    <%= f.label :pulses_per_train %><br />
+    <%= f.number_field :pulses_per_train %>
+  </div>
+  <div class="field">
+    <%= f.label :bursts_per_train %><br />
+    <%= f.number_field :bursts_per_train %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

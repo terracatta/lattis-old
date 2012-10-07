@@ -1,0 +1,2 @@
+module StimulationSessionsHelper
+end

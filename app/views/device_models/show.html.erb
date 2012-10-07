@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @device_model.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @device_model.type %>
+</p>
+
+<p>
+  <b>Serial:</b>
+  <%= @device_model.serial %>
+</p>
+
+<p>
+  <b>Device:</b>
+  <%= @device_model.device_id %>
+</p>
+
+<p>
+  <b>Stimulator:</b>
+  <%= @device_model.stimulator_id %>
+</p>
+
+<p>
+  <b>Coil:</b>
+  <%= @device_model.coil_id %>
+</p>
+
+<p>
+  <b>Stimulator model:</b>
+  <%= @device_model.stimulator_model_id %>
+</p>
+
+<p>
+  <b>Coil model:</b>
+  <%= @device_model.coil_model_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_device_model_path(@device_model) %> |
+<%= link_to 'Back', device_models_path %>

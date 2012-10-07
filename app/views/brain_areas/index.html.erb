@@ -1,0 +1,27 @@
+<h1>Listing brain_areas</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Short name</th>
+    <th>Left hemisphere</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @brain_areas.each do |brain_area| %>
+  <tr>
+    <td><%= brain_area.name %></td>
+    <td><%= brain_area.short_name %></td>
+    <td><%= brain_area.left_hemisphere %></td>
+    <td><%= link_to 'Show', brain_area %></td>
+    <td><%= link_to 'Edit', edit_brain_area_path(brain_area) %></td>
+    <td><%= link_to 'Destroy', brain_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Brain area', new_brain_area_path %>

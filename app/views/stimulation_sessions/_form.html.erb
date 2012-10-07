@@ -1,0 +1,49 @@
+<%= form_for(@stimulation_session) do |f| %>
+  <% if @stimulation_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stimulation_session.errors.count, "error") %> prohibited this stimulation_session from being saved:</h2>
+
+      <ul>
+      <% @stimulation_session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :visit_id %><br />
+    <%= f.number_field :visit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :location_id %><br />
+    <%= f.number_field :location_id %>
+  </div>
+  <div class="field">
+    <%= f.label :study_id %><br />
+    <%= f.number_field :study_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br />
+    <%= f.number_field :subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :neuro_navigation_used %><br />
+    <%= f.check_box :neuro_navigation_used %>
+  </div>
+  <div class="field">
+    <%= f.label :cnbs_staff_used %><br />
+    <%= f.check_box :cnbs_staff_used %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

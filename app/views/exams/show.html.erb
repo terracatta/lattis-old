@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit:</b>
+  <%= @exam.visit_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @exam.subject_id %>
+</p>
+
+<p>
+  <b>Pregnant:</b>
+  <%= @exam.pregnant %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @exam.user_id %>
+</p>
+
+<p>
+  <b>Pregnancy test lot:</b>
+  <%= @exam.pregnancy_test_lot %>
+</p>
+
+<p>
+  <b>Study:</b>
+  <%= @exam.study_id %>
+</p>
+
+<p>
+  <b>Pregnancy test start time:</b>
+  <%= @exam.pregnancy_test_start_time %>
+</p>
+
+<p>
+  <b>Pregnancy test end time:</b>
+  <%= @exam.pregnancy_test_end_time %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @exam.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_exam_path(@exam) %> |
+<%= link_to 'Back', exams_path %>

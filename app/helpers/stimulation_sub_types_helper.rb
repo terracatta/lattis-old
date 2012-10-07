@@ -1,0 +1,2 @@
+module StimulationSubTypesHelper
+end

@@ -1,0 +1,53 @@
+<%= form_for(@exam) do |f| %>
+  <% if @exam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+
+      <ul>
+      <% @exam.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :visit_id %><br />
+    <%= f.number_field :visit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br />
+    <%= f.number_field :subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pregnant %><br />
+    <%= f.check_box :pregnant %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pregnancy_test_lot %><br />
+    <%= f.text_field :pregnancy_test_lot %>
+  </div>
+  <div class="field">
+    <%= f.label :study_id %><br />
+    <%= f.number_field :study_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pregnancy_test_start_time %><br />
+    <%= f.datetime_select :pregnancy_test_start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :pregnancy_test_end_time %><br />
+    <%= f.datetime_select :pregnancy_test_end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

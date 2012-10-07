@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @scan_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @scan_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_scan_type_path(@scan_type) %> |
+<%= link_to 'Back', scan_types_path %>

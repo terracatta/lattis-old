@@ -1,0 +1,53 @@
+<%= form_for(@stimulation_device_session) do |f| %>
+  <% if @stimulation_device_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stimulation_device_session.errors.count, "error") %> prohibited this stimulation_device_session from being saved:</h2>
+
+      <ul>
+      <% @stimulation_device_session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :stimulation_session_id %><br />
+    <%= f.number_field :stimulation_session_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stimulator_id %><br />
+    <%= f.number_field :stimulator_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stimulator_model_id %><br />
+    <%= f.number_field :stimulator_model_id %>
+  </div>
+  <div class="field">
+    <%= f.label :coil_id %><br />
+    <%= f.number_field :coil_id %>
+  </div>
+  <div class="field">
+    <%= f.label :coil_model_id %><br />
+    <%= f.number_field :coil_model_id %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br />
+    <%= f.number_field :subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :study_id %><br />
+    <%= f.number_field :study_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

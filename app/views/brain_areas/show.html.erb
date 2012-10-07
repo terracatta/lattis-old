@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @brain_area.name %>
+</p>
+
+<p>
+  <b>Short name:</b>
+  <%= @brain_area.short_name %>
+</p>
+
+<p>
+  <b>Left hemisphere:</b>
+  <%= @brain_area.left_hemisphere %>
+</p>
+
+
+<%= link_to 'Edit', edit_brain_area_path(@brain_area) %> |
+<%= link_to 'Back', brain_areas_path %>

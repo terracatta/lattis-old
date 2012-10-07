@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Study:</b>
+  <%= @enrollment.study_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @enrollment.user_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @enrollment.subject_id %>
+</p>
+
+<p>
+  <b>Visit:</b>
+  <%= @enrollment.visit_id %>
+</p>
+
+<p>
+  <b>Enrollment start date:</b>
+  <%= @enrollment.enrollment_start_date %>
+</p>
+
+<p>
+  <b>Enrollment end date:</b>
+  <%= @enrollment.enrollment_end_date %>
+</p>
+
+<p>
+  <b>Enrollment status:</b>
+  <%= @enrollment.enrollment_status %>
+</p>
+
+<p>
+  <b>Enrollment status comment:</b>
+  <%= @enrollment.enrollment_status_comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |
+<%= link_to 'Back', enrollments_path %>
