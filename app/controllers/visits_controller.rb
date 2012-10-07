@@ -40,7 +40,7 @@ class VisitsController < ApplicationController
   # POST /visits
   # POST /visits.json
   def create
-    @visit = Visit.new(visit_params)
+    @visit = Visit.new(params[:visit])
 
     respond_to do |format|
       if @visit.save
@@ -59,7 +59,7 @@ class VisitsController < ApplicationController
     @visit = Visit.find(params[:id])
 
     respond_to do |format|
-      if @visit.update_attributes(visit_params)
+      if @visit.update_attributes(params[:visit])
         format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
         format.json { head :no_content }
       else
@@ -86,7 +86,7 @@ class VisitsController < ApplicationController
     # Use this method to whitelist the permissible parameters. Example:
     # params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
-    def visit_params
+    def params[:visit]
       params.require(:visit).permit(:date, :study_id, :subject_id)
     end
 end

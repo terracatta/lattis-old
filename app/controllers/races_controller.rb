@@ -40,7 +40,7 @@ class RacesController < ApplicationController
   # POST /races
   # POST /races.json
   def create
-    @race = Race.new(race_params)
+    @race = Race.new(params[:race])
 
     respond_to do |format|
       if @race.save
@@ -59,7 +59,7 @@ class RacesController < ApplicationController
     @race = Race.find(params[:id])
 
     respond_to do |format|
-      if @race.update_attributes(race_params)
+      if @race.update_attributes(params[:race])
         format.html { redirect_to @race, notice: 'Race was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class RacesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def race_params
-      params.require(:race).permit(:name)
-    end
 end

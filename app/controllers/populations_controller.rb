@@ -40,7 +40,7 @@ class PopulationsController < ApplicationController
   # POST /populations
   # POST /populations.json
   def create
-    @population = Population.new(population_params)
+    @population = Population.new(params[:population])
 
     respond_to do |format|
       if @population.save
@@ -59,7 +59,7 @@ class PopulationsController < ApplicationController
     @population = Population.find(params[:id])
 
     respond_to do |format|
-      if @population.update_attributes(population_params)
+      if @population.update_attributes(params[:population])
         format.html { redirect_to @population, notice: 'Population was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class PopulationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def population_params
-      params.require(:population).permit(:description, :name)
-    end
 end

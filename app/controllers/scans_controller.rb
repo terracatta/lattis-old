@@ -40,7 +40,7 @@ class ScansController < ApplicationController
   # POST /scans
   # POST /scans.json
   def create
-    @scan = Scan.new(scan_params)
+    @scan = Scan.new(params[:scan])
 
     respond_to do |format|
       if @scan.save
@@ -59,7 +59,7 @@ class ScansController < ApplicationController
     @scan = Scan.find(params[:id])
 
     respond_to do |format|
-      if @scan.update_attributes(scan_params)
+      if @scan.update_attributes(params[:scan])
         format.html { redirect_to @scan, notice: 'Scan was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class ScansController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def scan_params
-      params.require(:scan).permit(:date, :file, :location_id, :scan_format_id, :scan_sub_type_id, :scan_type_id, :study_id, :subject_id, :user_id, :visit_id)
-    end
 end

@@ -40,7 +40,7 @@ class EthnicitiesController < ApplicationController
   # POST /ethnicities
   # POST /ethnicities.json
   def create
-    @ethnicity = Ethnicity.new(ethnicity_params)
+    @ethnicity = Ethnicity.new(params[:ethnicity])
 
     respond_to do |format|
       if @ethnicity.save
@@ -59,7 +59,7 @@ class EthnicitiesController < ApplicationController
     @ethnicity = Ethnicity.find(params[:id])
 
     respond_to do |format|
-      if @ethnicity.update_attributes(ethnicity_params)
+      if @ethnicity.update_attributes(params[:ethnicity])
         format.html { redirect_to @ethnicity, notice: 'Ethnicity was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class EthnicitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def ethnicity_params
-      params.require(:ethnicity).permit(:name)
-    end
 end

@@ -40,7 +40,7 @@ class TaskTypesController < ApplicationController
   # POST /task_types
   # POST /task_types.json
   def create
-    @task_type = TaskType.new(task_type_params)
+    @task_type = TaskType.new(params[:task_type])
 
     respond_to do |format|
       if @task_type.save
@@ -59,7 +59,7 @@ class TaskTypesController < ApplicationController
     @task_type = TaskType.find(params[:id])
 
     respond_to do |format|
-      if @task_type.update_attributes(task_type_params)
+      if @task_type.update_attributes(params[:task_type])
         format.html { redirect_to @task_type, notice: 'Task type was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class TaskTypesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def task_type_params
-      params.require(:task_type).permit(:description, :name)
-    end
 end

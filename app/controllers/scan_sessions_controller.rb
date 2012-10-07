@@ -40,7 +40,7 @@ class ScanSessionsController < ApplicationController
   # POST /scan_sessions
   # POST /scan_sessions.json
   def create
-    @scan_session = ScanSession.new(scan_session_params)
+    @scan_session = ScanSession.new(params[:scan_session])
 
     respond_to do |format|
       if @scan_session.save
@@ -59,7 +59,7 @@ class ScanSessionsController < ApplicationController
     @scan_session = ScanSession.find(params[:id])
 
     respond_to do |format|
-      if @scan_session.update_attributes(scan_session_params)
+      if @scan_session.update_attributes(params[:scan_session])
         format.html { redirect_to @scan_session, notice: 'Scan session was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class ScanSessionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def scan_session_params
-      params.require(:scan_session).permit(:location_id, :subject_id, :user_id, :visit_id)
-    end
 end

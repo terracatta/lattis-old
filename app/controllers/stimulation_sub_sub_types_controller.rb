@@ -40,7 +40,7 @@ class StimulationSubSubTypesController < ApplicationController
   # POST /stimulation_sub_sub_types
   # POST /stimulation_sub_sub_types.json
   def create
-    @stimulation_sub_sub_type = StimulationSubSubType.new(stimulation_sub_sub_type_params)
+    @stimulation_sub_sub_type = StimulationSubSubType.new(params[:stimulation_sub_sub_type])
 
     respond_to do |format|
       if @stimulation_sub_sub_type.save
@@ -59,7 +59,7 @@ class StimulationSubSubTypesController < ApplicationController
     @stimulation_sub_sub_type = StimulationSubSubType.find(params[:id])
 
     respond_to do |format|
-      if @stimulation_sub_sub_type.update_attributes(stimulation_sub_sub_type_params)
+      if @stimulation_sub_sub_type.update_attributes(params[:stimulation_sub_sub_type])
         format.html { redirect_to @stimulation_sub_sub_type, notice: 'Stimulation sub sub type was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class StimulationSubSubTypesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def stimulation_sub_sub_type_params
-      params.require(:stimulation_sub_sub_type).permit(:bursts_per_train, :frequency, :interburst_interval, :interpulse_interval, :intertain_interval, :name, :pulses_per_train, :stimulation_sub_type_id, :trains_count)
-    end
 end

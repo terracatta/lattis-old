@@ -40,7 +40,7 @@ class ExamsController < ApplicationController
   # POST /exams
   # POST /exams.json
   def create
-    @exam = Exam.new(exam_params)
+    @exam = Exam.new(params[:exam])
 
     respond_to do |format|
       if @exam.save
@@ -59,7 +59,7 @@ class ExamsController < ApplicationController
     @exam = Exam.find(params[:id])
 
     respond_to do |format|
-      if @exam.update_attributes(exam_params)
+      if @exam.update_attributes(params[:exam])
         format.html { redirect_to @exam, notice: 'Exam was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class ExamsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def exam_params
-      params.require(:exam).permit(:date, :pregnancy_test_end_time, :pregnancy_test_lot, :pregnancy_test_start_time, :pregnant, :study_id, :subject_id, :user_id, :visit_id)
-    end
 end

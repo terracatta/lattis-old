@@ -40,7 +40,7 @@ class StimulationDeviceSessionsController < ApplicationController
   # POST /stimulation_device_sessions
   # POST /stimulation_device_sessions.json
   def create
-    @stimulation_device_session = StimulationDeviceSession.new(stimulation_device_session_params)
+    @stimulation_device_session = StimulationDeviceSession.new(params[:stimulation_device_session])
 
     respond_to do |format|
       if @stimulation_device_session.save
@@ -59,7 +59,7 @@ class StimulationDeviceSessionsController < ApplicationController
     @stimulation_device_session = StimulationDeviceSession.find(params[:id])
 
     respond_to do |format|
-      if @stimulation_device_session.update_attributes(stimulation_device_session_params)
+      if @stimulation_device_session.update_attributes(params[:stimulation_device_session])
         format.html { redirect_to @stimulation_device_session, notice: 'Stimulation device session was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class StimulationDeviceSessionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def stimulation_device_session_params
-      params.require(:stimulation_device_session).permit(:coil_id, :coil_model_id, :date, :stimulation_session_id, :stimulator_id, :stimulator_model_id, :study_id, :subject_id, :user_id)
-    end
 end

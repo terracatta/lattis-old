@@ -40,7 +40,7 @@ class BrainAreasController < ApplicationController
   # POST /brain_areas
   # POST /brain_areas.json
   def create
-    @brain_area = BrainArea.new(brain_area_params)
+    @brain_area = BrainArea.new(params[:brain_area])
 
     respond_to do |format|
       if @brain_area.save
@@ -59,7 +59,7 @@ class BrainAreasController < ApplicationController
     @brain_area = BrainArea.find(params[:id])
 
     respond_to do |format|
-      if @brain_area.update_attributes(brain_area_params)
+      if @brain_area.update_attributes(params[:brain_area])
         format.html { redirect_to @brain_area, notice: 'Brain area was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class BrainAreasController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def brain_area_params
-      params.require(:brain_area).permit(:hemisphere, :name, :short_name)
-    end
 end

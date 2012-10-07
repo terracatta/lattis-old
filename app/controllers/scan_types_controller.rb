@@ -40,7 +40,7 @@ class ScanTypesController < ApplicationController
   # POST /scan_types
   # POST /scan_types.json
   def create
-    @scan_type = ScanType.new(scan_type_params)
+    @scan_type = ScanType.new(params[:scan_type])
 
     respond_to do |format|
       if @scan_type.save
@@ -59,7 +59,7 @@ class ScanTypesController < ApplicationController
     @scan_type = ScanType.find(params[:id])
 
     respond_to do |format|
-      if @scan_type.update_attributes(scan_type_params)
+      if @scan_type.update_attributes(params[:scan_type])
         format.html { redirect_to @scan_type, notice: 'Scan type was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class ScanTypesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def scan_type_params
-      params.require(:scan_type).permit(:description, :name)
-    end
 end

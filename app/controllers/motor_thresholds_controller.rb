@@ -40,7 +40,7 @@ class MotorThresholdsController < ApplicationController
   # POST /motor_thresholds
   # POST /motor_thresholds.json
   def create
-    @motor_threshold = MotorThreshold.new(motor_threshold_params)
+    @motor_threshold = MotorThreshold.new(params[:motor_threshold])
 
     respond_to do |format|
       if @motor_threshold.save
@@ -59,7 +59,7 @@ class MotorThresholdsController < ApplicationController
     @motor_threshold = MotorThreshold.find(params[:id])
 
     respond_to do |format|
-      if @motor_threshold.update_attributes(motor_threshold_params)
+      if @motor_threshold.update_attributes(params[:motor_threshold])
         format.html { redirect_to @motor_threshold, notice: 'Motor threshold was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class MotorThresholdsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def motor_threshold_params
-      params.require(:motor_threshold).permit(:coil_id, :date, :determination, :intensity, :stimulation_session_id, :stimulator_id, :variety)
-    end
 end

@@ -40,7 +40,7 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
+    @location = Location.new(params[:location])
 
     respond_to do |format|
       if @location.save
@@ -59,7 +59,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     respond_to do |format|
-      if @location.update_attributes(location_params)
+      if @location.update_attributes(params[:location])
         format.html { redirect_to @location, notice: 'Location was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class LocationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def location_params
-      params.require(:location).permit(:building_name, :floor_number, :key_number, :name, :phone, :room_string)
-    end
 end

@@ -40,7 +40,7 @@ class DevicesController < ApplicationController
   # POST /devices
   # POST /devices.json
   def create
-    @device = Device.new(device_params)
+    @device = Device.new(params[:device])
 
     respond_to do |format|
       if @device.save
@@ -59,7 +59,7 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
 
     respond_to do |format|
-      if @device.update_attributes(device_params)
+      if @device.update_attributes(params[:device])
         format.html { redirect_to @device, notice: 'Device was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class DevicesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def device_params
-      params.require(:device).permit(:device_model_id, :name, :serial, :type)
-    end
 end

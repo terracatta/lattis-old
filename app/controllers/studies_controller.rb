@@ -40,7 +40,7 @@ class StudiesController < ApplicationController
   # POST /studies
   # POST /studies.json
   def create
-    @study = Study.new(study_params)
+    @study = Study.new(params[:study])
 
     respond_to do |format|
       if @study.save
@@ -59,7 +59,7 @@ class StudiesController < ApplicationController
     @study = Study.find(params[:id])
 
     respond_to do |format|
-      if @study.update_attributes(study_params)
+      if @study.update_attributes(params[:study])
         format.html { redirect_to @study, notice: 'Study was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class StudiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def study_params
-      params.require(:study).permit(:description, :irb_number, :repository_approved)
-    end
 end

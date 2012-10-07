@@ -40,7 +40,7 @@ class ScanFormatsController < ApplicationController
   # POST /scan_formats
   # POST /scan_formats.json
   def create
-    @scan_format = ScanFormat.new(scan_format_params)
+    @scan_format = ScanFormat.new(params[:scan_format])
 
     respond_to do |format|
       if @scan_format.save
@@ -59,7 +59,7 @@ class ScanFormatsController < ApplicationController
     @scan_format = ScanFormat.find(params[:id])
 
     respond_to do |format|
-      if @scan_format.update_attributes(scan_format_params)
+      if @scan_format.update_attributes(params[:scan_format])
         format.html { redirect_to @scan_format, notice: 'Scan format was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class ScanFormatsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def scan_format_params
-      params.require(:scan_format).permit(:description, :name)
-    end
 end

@@ -40,7 +40,7 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments
   # POST /enrollments.json
   def create
-    @enrollment = Enrollment.new(enrollment_params)
+    @enrollment = Enrollment.new(params[:enrollment])
 
     respond_to do |format|
       if @enrollment.save
@@ -59,7 +59,7 @@ class EnrollmentsController < ApplicationController
     @enrollment = Enrollment.find(params[:id])
 
     respond_to do |format|
-      if @enrollment.update_attributes(enrollment_params)
+      if @enrollment.update_attributes(params[:enrollment])
         format.html { redirect_to @enrollment, notice: 'Enrollment was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,13 +80,4 @@ class EnrollmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-    # Use this method to whitelist the permissible parameters. Example:
-    # params.require(:person).permit(:name, :age)
-    # Also, you can specialize this method with per-user checking of permissible attributes.
-    def enrollment_params
-      params.require(:enrollment).permit(:enrollment_end_date, :enrollment_start_date, :enrollment_status, :enrollment_status_comment, :study_id, :subject_id, :user_id, :visit_id)
-    end
 end
