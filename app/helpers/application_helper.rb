@@ -20,15 +20,10 @@ module ApplicationHelper
     options [:gravatar_options] ||= {}
     options[:container_options] ||= { class: "" }
     options[:container_options][:class] <<  " avatar"
-
-    html = content_tag(:span, options[:container_options]) do
-      if options[:include_name]
-        image_tag(user.gravatar_url(options[:gravatar_options]), options) +
-        content_tag(:span, user, class: "user-name")
-      else
+    html = ActiveSupport::SafeBuffer.new
+    html << content_tag(:span, user, class: "user-name") if options[:include_name]
+    html << content_tag(:span, options[:container_options]) do
         image_tag(user.gravatar_url(options[:gravatar_options]), options)
-      end
-
     end
 
     html

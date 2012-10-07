@@ -2,6 +2,56 @@ body {
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 12px;
   margin: 0;
+  min-width: 960px;
+}
+
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #000;
+
+  &.inverse {
+    border-bottom: 5px solid #DCDDDE;
+  }
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
+
+  &.inverse {
+    border-top: 5px solid #DCDDDE;
+  }
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #000;
+
+  &.inverse {
+    border-left: 10px solid #DCDDDE;
+  }
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #000;
+
+  &.inverse {
+    border-right: 10px solid #DCDDDE;
+  }
 }
 
 img.logo {
@@ -12,15 +62,20 @@ img.logo {
 }
 
 div.flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
   margin: 0;
   color: #fff;
-  height: 45px;
+  height: 40px;
   font-size: 24px;
   text-align: center;
   text-shadow: 0 1px 3px #000;
   padding-top: 15px;
   border-bottom: 1px solid rgba(0,0,0,0.3);
-  background: #565E6F;
+  background: rgba(0,25,50, 0.6);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -40,6 +95,70 @@ div.flash {
     cursor: pointer;
   }
 }
+
+#masthead-container {
+  background: #50616c;
+  background: -moz-linear-gradient(top,  #50616c 0%, #36424b 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#50616c), color-stop(100%,#36424b));
+  background: -webkit-linear-gradient(top,  #50616c 0%,#36424b 100%);
+  background: -o-linear-gradient(top,  #50616c 0%,#36424b 100%);
+  background: -ms-linear-gradient(top,  #50616c 0%,#36424b 100%);
+  background: linear-gradient(to bottom,  #50616c 0%,#36424b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#50616c', endColorstr='#36424b',GradientType=0 );
+
+  border-bottom: 1px solid #000;
+}
+
+#masthead {
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  height: 55px;
+
+  img.logo {
+    width: 80px;
+  }
+}
+
+#user-nav {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  cursor: pointer;
+
+  span.user-nav-arrow {
+    display: inline-block;
+    position: relative;
+    right: 7px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+span.user-name {
+  color: #fff;
+}
+
+span.avatar {
+  display: inline-block;
+  border: 2px solid #BBBDBF;
+  border-radius: 8px;
+  vertical-align: middle;
+  margin: 0 10px;
+
+  -moz-box-shadow: 0 0 8px rgba(0,0,0, 0.8);
+  -web-box-shadow: 0 0 8px rgba(0,0,0, 0.8);
+  box-shadow: 0 0 8px rgba(0,0,0, 0.8);
+
+  img {
+    border-radius: 6px;
+    display: block;
+  }
+}
+
 
 
 // Our basic button suitable for making things looks rather buttony
