@@ -73,9 +73,14 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/change_password
+  def change_password
+    @user = User.find(params[:id])
+  end
+
   # PUT /users/1/update_password
   def update_password
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
 
     respond_to do |format|
       if @user.update_with_password(permitted_params.user(@user))

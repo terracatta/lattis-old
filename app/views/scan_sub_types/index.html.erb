@@ -1,0 +1,27 @@
+<h1>Listing scan_sub_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Scan type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scan_sub_types.each do |scan_sub_type| %>
+  <tr>
+    <td><%= scan_sub_type.name %></td>
+    <td><%= scan_sub_type.description %></td>
+    <td><%= scan_sub_type.scan_type_id %></td>
+    <td><%= link_to 'Show', scan_sub_type %></td>
+    <td><%= link_to 'Edit', edit_scan_sub_type_path(scan_sub_type) %></td>
+    <td><%= link_to 'Destroy', scan_sub_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scan sub type', new_scan_sub_type_path %>

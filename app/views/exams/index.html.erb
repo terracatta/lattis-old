@@ -1,0 +1,39 @@
+<h1>Listing exams</h1>
+
+<table>
+  <tr>
+    <th>Visit</th>
+    <th>Subject</th>
+    <th>Pregnant</th>
+    <th>User</th>
+    <th>Pregnancy test lot</th>
+    <th>Study</th>
+    <th>Pregnancy test start time</th>
+    <th>Pregnancy test end time</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exams.each do |exam| %>
+  <tr>
+    <td><%= exam.visit_id %></td>
+    <td><%= exam.subject_id %></td>
+    <td><%= exam.pregnant %></td>
+    <td><%= exam.user_id %></td>
+    <td><%= exam.pregnancy_test_lot %></td>
+    <td><%= exam.study_id %></td>
+    <td><%= exam.pregnancy_test_start_time %></td>
+    <td><%= exam.pregnancy_test_end_time %></td>
+    <td><%= exam.date %></td>
+    <td><%= link_to 'Show', exam %></td>
+    <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
+    <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exam', new_exam_path %>

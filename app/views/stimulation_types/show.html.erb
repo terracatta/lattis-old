@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @stimulation_type.name %>
+</p>
+
+<p>
+  <b>Interpulse interval:</b>
+  <%= @stimulation_type.interpulse_interval %>
+</p>
+
+<p>
+  <b>Interburst interval:</b>
+  <%= @stimulation_type.interburst_interval %>
+</p>
+
+<p>
+  <b>Intertain interval:</b>
+  <%= @stimulation_type.intertain_interval %>
+</p>
+
+<p>
+  <b>Frequency:</b>
+  <%= @stimulation_type.frequency %>
+</p>
+
+<p>
+  <b>Trains count:</b>
+  <%= @stimulation_type.trains_count %>
+</p>
+
+<p>
+  <b>Pulses per train:</b>
+  <%= @stimulation_type.pulses_per_train %>
+</p>
+
+<p>
+  <b>Bursts per train:</b>
+  <%= @stimulation_type.bursts_per_train %>
+</p>
+
+
+<%= link_to 'Edit', edit_stimulation_type_path(@stimulation_type) %> |
+<%= link_to 'Back', stimulation_types_path %>

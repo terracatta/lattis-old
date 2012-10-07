@@ -1,0 +1,41 @@
+<h1>Listing scans</h1>
+
+<table>
+  <tr>
+    <th>Visit</th>
+    <th>Location</th>
+    <th>Study</th>
+    <th>Subject</th>
+    <th>User</th>
+    <th>Scan type</th>
+    <th>Scan sub type</th>
+    <th>Scan format</th>
+    <th>Date</th>
+    <th>File</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scans.each do |scan| %>
+  <tr>
+    <td><%= scan.visit_id %></td>
+    <td><%= scan.location_id %></td>
+    <td><%= scan.study_id %></td>
+    <td><%= scan.subject_id %></td>
+    <td><%= scan.user_id %></td>
+    <td><%= scan.scan_type_id %></td>
+    <td><%= scan.scan_sub_type_id %></td>
+    <td><%= scan.scan_format_id %></td>
+    <td><%= scan.date %></td>
+    <td><%= scan.file %></td>
+    <td><%= link_to 'Show', scan %></td>
+    <td><%= link_to 'Edit', edit_scan_path(scan) %></td>
+    <td><%= link_to 'Destroy', scan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scan', new_scan_path %>

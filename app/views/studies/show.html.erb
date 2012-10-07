@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Irb number:</b>
+  <%= @study.irb_number %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @study.description %>
+</p>
+
+<p>
+  <b>Repository approved:</b>
+  <%= @study.repository_approved %>
+</p>
+
+
+<%= link_to 'Edit', edit_study_path(@study) %> |
+<%= link_to 'Back', studies_path %>

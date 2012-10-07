@@ -1,0 +1,2 @@
+module BrainAreasHelper
+end

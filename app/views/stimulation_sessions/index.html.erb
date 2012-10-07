@@ -1,0 +1,37 @@
+<h1>Listing stimulation_sessions</h1>
+
+<table>
+  <tr>
+    <th>Visit</th>
+    <th>Location</th>
+    <th>Study</th>
+    <th>User</th>
+    <th>Subject</th>
+    <th>Date</th>
+    <th>Neuro navigation used</th>
+    <th>Cnbs staff used</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stimulation_sessions.each do |stimulation_session| %>
+  <tr>
+    <td><%= stimulation_session.visit_id %></td>
+    <td><%= stimulation_session.location_id %></td>
+    <td><%= stimulation_session.study_id %></td>
+    <td><%= stimulation_session.user_id %></td>
+    <td><%= stimulation_session.subject_id %></td>
+    <td><%= stimulation_session.date %></td>
+    <td><%= stimulation_session.neuro_navigation_used %></td>
+    <td><%= stimulation_session.cnbs_staff_used %></td>
+    <td><%= link_to 'Show', stimulation_session %></td>
+    <td><%= link_to 'Edit', edit_stimulation_session_path(stimulation_session) %></td>
+    <td><%= link_to 'Destroy', stimulation_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stimulation session', new_stimulation_session_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@scan_session) do |f| %>
+  <% if @scan_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scan_session.errors.count, "error") %> prohibited this scan_session from being saved:</h2>
+
+      <ul>
+      <% @scan_session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :visit_id %><br />
+    <%= f.number_field :visit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br />
+    <%= f.number_field :subject_id %>
+  </div>
+  <div class="field">
+    <%= f.label :location_id %><br />
+    <%= f.number_field :location_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

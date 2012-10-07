@@ -1,0 +1,25 @@
+<h1>Listing scan_formats</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scan_formats.each do |scan_format| %>
+  <tr>
+    <td><%= scan_format.name %></td>
+    <td><%= scan_format.description %></td>
+    <td><%= link_to 'Show', scan_format %></td>
+    <td><%= link_to 'Edit', edit_scan_format_path(scan_format) %></td>
+    <td><%= link_to 'Destroy', scan_format, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scan format', new_scan_format_path %>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit:</b>
+  <%= @stimulation_session.visit_id %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @stimulation_session.location_id %>
+</p>
+
+<p>
+  <b>Study:</b>
+  <%= @stimulation_session.study_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @stimulation_session.user_id %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @stimulation_session.subject_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @stimulation_session.date %>
+</p>
+
+<p>
+  <b>Neuro navigation used:</b>
+  <%= @stimulation_session.neuro_navigation_used %>
+</p>
+
+<p>
+  <b>Cnbs staff used:</b>
+  <%= @stimulation_session.cnbs_staff_used %>
+</p>
+
+
+<%= link_to 'Edit', edit_stimulation_session_path(@stimulation_session) %> |
+<%= link_to 'Back', stimulation_sessions_path %>

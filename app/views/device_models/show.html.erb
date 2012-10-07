@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @device_model.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @device_model.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_device_model_path(@device_model) %> |
+<%= link_to 'Back', device_models_path %>

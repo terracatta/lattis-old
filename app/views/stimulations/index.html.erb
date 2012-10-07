@@ -1,0 +1,63 @@
+<h1>Listing stimulations</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Subject</th>
+    <th>Study</th>
+    <th>Stimulation type</th>
+    <th>Stimulation sub sub type</th>
+    <th>Stimulation device session</th>
+    <th>Stimulation session</th>
+    <th>Sham</th>
+    <th>Brain area</th>
+    <th>Intensity</th>
+    <th>Paired pulse intensity</th>
+    <th>Frequency</th>
+    <th>Interpulse interval</th>
+    <th>Interburst interval</th>
+    <th>Intertrain interval</th>
+    <th>Trains count</th>
+    <th>Pulses per train</th>
+    <th>Bursts per train</th>
+    <th>Pulses per burst</th>
+    <th>Duration</th>
+    <th>Neuro navigation used</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stimulations.each do |stimulation| %>
+  <tr>
+    <td><%= stimulation.date %></td>
+    <td><%= stimulation.subject_id %></td>
+    <td><%= stimulation.study_id %></td>
+    <td><%= stimulation.stimulation_type_id %></td>
+    <td><%= stimulation.stimulation_sub_sub_type_id %></td>
+    <td><%= stimulation.stimulation_device_session_id %></td>
+    <td><%= stimulation.stimulation_session_id %></td>
+    <td><%= stimulation.sham %></td>
+    <td><%= stimulation.brain_area_id %></td>
+    <td><%= stimulation.intensity %></td>
+    <td><%= stimulation.paired_pulse_intensity %></td>
+    <td><%= stimulation.frequency %></td>
+    <td><%= stimulation.interpulse_interval %></td>
+    <td><%= stimulation.interburst_interval %></td>
+    <td><%= stimulation.intertrain_interval %></td>
+    <td><%= stimulation.trains_count %></td>
+    <td><%= stimulation.pulses_per_train %></td>
+    <td><%= stimulation.bursts_per_train %></td>
+    <td><%= stimulation.pulses_per_burst %></td>
+    <td><%= stimulation.duration %></td>
+    <td><%= stimulation.neuro_navigation_used %></td>
+    <td><%= link_to 'Show', stimulation %></td>
+    <td><%= link_to 'Edit', edit_stimulation_path(stimulation) %></td>
+    <td><%= link_to 'Destroy', stimulation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stimulation', new_stimulation_path %>

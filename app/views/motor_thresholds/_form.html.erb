@@ -1,0 +1,45 @@
+<%= form_for(@motor_threshold) do |f| %>
+  <% if @motor_threshold.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@motor_threshold.errors.count, "error") %> prohibited this motor_threshold from being saved:</h2>
+
+      <ul>
+      <% @motor_threshold.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :variety %><br />
+    <%= f.text_field :variety %>
+  </div>
+  <div class="field">
+    <%= f.label :stimulator_id %><br />
+    <%= f.number_field :stimulator_id %>
+  </div>
+  <div class="field">
+    <%= f.label :coil_id %><br />
+    <%= f.number_field :coil_id %>
+  </div>
+  <div class="field">
+    <%= f.label :intensity %><br />
+    <%= f.text_field :intensity %>
+  </div>
+  <div class="field">
+    <%= f.label :determination %><br />
+    <%= f.text_field :determination %>
+  </div>
+  <div class="field">
+    <%= f.label :stimulation_session_id %><br />
+    <%= f.number_field :stimulation_session_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
