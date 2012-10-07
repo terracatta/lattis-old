@@ -119,6 +119,18 @@ namespace :db do
           :date => stimulation_session.date
         )
       end
+
+      (rand(3) + 1).times do
+        MotorThreshold.create(
+          :variety => ['active', 'resting'].sample,
+          :determination => ['visual', 'EMG'].sample,
+          :stimulation_session_id => stimulation_session.id,
+          :stimulator_id => Stimulator.all.sample.id,
+          :coil_id => Coil.all.sample.id,
+          :date => stimulation_session.date
+        )
+      end
+
     end
 
     #Create Fake Stimulations
