@@ -4,6 +4,8 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :subject_id
       t.integer :visit_id
       t.integer :task_type_id
+      t.integer :taskable_id
+      t.string  :taskable_type
 
       t.timestamps
     end

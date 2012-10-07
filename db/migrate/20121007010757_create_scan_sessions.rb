@@ -5,6 +5,8 @@ class CreateScanSessions < ActiveRecord::Migration
       t.integer :user_id
       t.integer :subject_id
       t.integer :location_id
+      t.integer :study_id
+      t.datetime :date
 
       t.timestamps
     end

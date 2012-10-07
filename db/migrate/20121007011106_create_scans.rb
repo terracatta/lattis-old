@@ -5,6 +5,7 @@ class CreateScans < ActiveRecord::Migration
       t.integer :location_id
       t.integer :study_id
       t.integer :subject_id
+      t.integer :scan_session_id
       t.integer :user_id
       t.integer :scan_type_id
       t.integer :scan_sub_type_id

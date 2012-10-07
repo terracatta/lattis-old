@@ -145,6 +145,8 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.integer  "user_id"
     t.integer  "subject_id"
     t.integer  "location_id"
+    t.integer  "study_id"
+    t.datetime "date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -169,6 +171,7 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.integer  "location_id"
     t.integer  "study_id"
     t.integer  "subject_id"
+    t.integer  "scan_session_id"
     t.integer  "user_id"
     t.integer  "scan_type_id"
     t.integer  "scan_sub_type_id"
@@ -255,6 +258,7 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.integer  "subject_id"
     t.integer  "study_id"
     t.integer  "stimulation_type_id"
+    t.integer  "stimulation_sub_type_id"
     t.integer  "stimulation_sub_sub_type_id"
     t.integer  "stimulation_device_session_id"
     t.integer  "stimulation_session_id"
@@ -277,6 +281,7 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
   end
 
   create_table "studies", :force => true do |t|
+    t.string   "name"
     t.string   "irb_number"
     t.text     "description"
     t.boolean  "repository_approved"
@@ -302,11 +307,13 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
   create_table "subjects", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "email"
     t.string   "phone"
     t.string   "secondary_phone"
     t.string   "address"
     t.string   "address2"
     t.string   "city"
+    t.string   "state"
     t.string   "zipcode"
     t.date     "date_of_birth"
     t.string   "mrn"
@@ -318,6 +325,7 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.integer  "visits_count"
     t.integer  "scan_sessions_count"
     t.integer  "scans_count"
+    t.integer  "stimulation_device_sessions_count"
     t.integer  "stimulation_sessions_count"
     t.integer  "stimulations_count"
     t.integer  "age"
@@ -325,8 +333,8 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.boolean  "contactable"
     t.string   "height"
     t.string   "weight"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "task_types", :force => true do |t|
@@ -340,8 +348,10 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.integer  "subject_id"
     t.integer  "visit_id"
     t.integer  "task_type_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "taskable_id"
+    t.string   "taskable_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

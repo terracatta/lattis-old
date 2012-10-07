@@ -5,6 +5,7 @@ class CreateStimulations < ActiveRecord::Migration
       t.integer :subject_id
       t.integer :study_id
       t.integer :stimulation_type_id
+      t.integer :stimulation_sub_type_id
       t.integer :stimulation_sub_sub_type_id
       t.integer :stimulation_device_session_id
       t.integer :stimulation_session_id
