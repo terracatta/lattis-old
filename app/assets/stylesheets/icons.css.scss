@@ -1,5 +1,5 @@
 @mixin dashboard {
-  background: url('/assets/icons.png') no-repeat 0 -3px;
+  background: url('/assets/icons.png') no-repeat -1px -2px;
   background-size: 554px 237px;
   width: 31px;
   height: 26px;
@@ -13,7 +13,7 @@
 }
 
 @mixin dashboard-active {
-  background: url('/assets/icons.png') no-repeat -1px -78px;
+  background: url('/assets/icons.png') no-repeat -1px -77px;
   background-size: 554px 237px;
   width: 31px;
   height: 26px;

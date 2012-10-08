@@ -1,6 +1,30 @@
 module ApplicationHelper
 
 
+  def button(*args, &block)
+    options      = args[1] || {}
+    html_options = args[2] || {}
+
+    button_class =  if options.kind_of?(Hash) && options.has_key?(:button_type)
+      "#{options[:button_type]}"
+    elsif html_options.kind_of?(Hash) && html_options.has_key?(:button_type)
+       "#{html_options[:button_type]}"
+    else
+      ""
+    end
+
+    html_options[:class] = ""  unless html_options.has_key?(:class)
+    html_options[:class] += " button #{button_class}"
+
+    if args[2]
+      args[2] = html_options
+    else
+      args.push html_options
+    end
+
+    link_to(*args, &block)
+  end
+
   # Returns ActiveSupport::SafeBuffer containing button
   def link_to_with_icon(*args, &block)
     if block_given?

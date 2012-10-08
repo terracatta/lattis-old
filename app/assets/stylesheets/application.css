@@ -12,5 +12,6 @@
  *= require jquery.dropdown
  *= require lattis
  *= require icons
+*= require layout
  *= require sessions
  */
