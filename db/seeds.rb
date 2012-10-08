@@ -4,8 +4,8 @@
 #
 admin = User.find_or_create_by_email({
   email: 'admin.user@lattis.app',
-  first_name: 'admin',
-  last_name: 'user',
+  first_name: 'Admin',
+  last_name: 'User',
   password: 'lattis',
   admin: true
 })

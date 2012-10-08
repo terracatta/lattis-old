@@ -1,5 +1,5 @@
 class StimulationSubSubTypesController < ApplicationController
-  load_and_authorize_resource
+load_and_authorize_resource
 
   # GET /stimulation_sub_sub_types
   # GET /stimulation_sub_sub_types.json

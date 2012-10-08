@@ -1,16 +1,22 @@
-<header id="masthead">
-    <%= image_tag 'lattis_logo.png', class: 'logo' %>
-    <nav id="user-nav">
-      <%= link_to avatar(current_user, size: '32x32',
-       include_name: true), current_user %>
-      <ul>
-        <li>
-          <%= link_to "Settings", edit_user_path(current_user) %>
-        </li>
-        <li>
-          <%= link_to('Logout', destroy_user_session_path,
-           :method => :delete) %>
-        </li>
-      </ul>
-    </nav>
-</header>
+<div id="masthead-container">
+  <header id="masthead">
+    <%= link_to image_tag('lattis_logo_orange.png', class: 'logo'), :root %>
+      <nav id="user-nav" data-dropdown="#user-nav-items">
+        <%= avatar(current_user, size: '32x32',include_name: true) %>
+        <span class="arrow-down inverse user-nav-arrow"></span>
+      </nav>
+  </header>
+</div>
+
+
+<% content_for :dropdowns do %>
+  <ul id="user-nav-items" class="dropdown-menu has-tip anchor-right">
+    <li>
+      <%= link_to "Settings", edit_user_path(current_user) %>
+    </li>
+    <li>
+      <%= link_to('Logout', destroy_user_session_path,
+      :method => :delete) %>
+    </li>
+  </ul>
+<% end %>

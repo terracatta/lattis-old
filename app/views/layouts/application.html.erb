@@ -10,9 +10,15 @@
   <%= render 'layouts/flash', flash: flash %>
   <%= render 'layouts/masthead' %>
   <%= render 'layouts/navigation' %>
-  <div id="content">
-    <%= yield %>
+  <div id="content-container">
+    <div id="content-glass">
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
+    </div>
   </div>
+  <%= yield :dropdowns %>
   <%= render 'layouts/footer'  %>
 </body>
 </html>

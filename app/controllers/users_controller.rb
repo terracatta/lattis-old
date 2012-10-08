@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
+  authorize_resource
 
   skip_before_filter :check_for_password_reset,
      :only => [:change_password,:update_password]
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new(permitted_params.user)
 
     respond_to do |format|
       if @user.save
