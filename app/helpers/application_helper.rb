@@ -1,4 +1,35 @@
 module ApplicationHelper
+
+
+  # Returns ActiveSupport::SafeBuffer containing button
+  def link_to_with_icon(*args, &block)
+    if block_given?
+      options      = args.first || {}
+      html_options = args.second
+      link_to(capture(&block), options, html_options)
+    else
+      name         = args[0]
+      options      = args[1] || {}
+      html_options = args[2]
+
+      if html_options.kind_of?(Hash) && html_options.has_key?(:icon_class)
+        name = %{<i class="#{html_options[:icon_class]}"></i>#{name}}.html_safe
+      end
+
+      name = %{<span class="link"></span>#{name}}.html_safe
+
+      html_options = convert_options_to_data_attributes(options, html_options)
+      url = url_for(options)
+
+      href = html_options['href']
+      tag_options = tag_options(html_options)
+
+      href_attr = "href=\"#{ERB::Util.html_escape(url)}\"" unless href
+      "<a #{href_attr}#{tag_options}>#{ERB::Util.html_escape(name || url)}</a>".html_safe
+    end
+  end
+
+
   # Displays the specified user's gravatar.
   #
   # user    - A valid User object

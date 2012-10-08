@@ -85,8 +85,9 @@
 }
 
 .dropdown-menu .divider {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #333;
   height: 1px;
-  background: #E5E5E5;
   margin: 5px 1px;
   overflow: hidden;
 }

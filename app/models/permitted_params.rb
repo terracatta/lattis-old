@@ -20,8 +20,14 @@ class PermittedParams < Struct.new(:params, :user)
   # Returns an Array of symbols representing the permitted params
   def user_attributes(user)
     attribtutes = [ :first_name, :last_name, :position, :email ]
-    attribtutes.push(:admin) if user.can?(:set_admin, user)
-    attribtutes.push(:password, :password_confirmation, :current_password)
+
+    if user.can?(:set_admin, user)
+      attribtutes.push(:admin)
+    end
+
+    if user.can?(:update_password, user)
+      attribtutes.push(:password, :password_confirmation, :current_password)
+    end
 
     attribtutes
   end

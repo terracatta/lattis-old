@@ -1,8 +1,51 @@
-<nav id="primary-nav">
-  <ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
+<div id="primary-nav-container">
+  <nav id="primary-nav">
+    <ul>
+      <li>
+        <%= link_to_with_icon "Dashboard", :root, icon_class: "dashboard" %>
+      </li>
+      <li>
+        <%= link_to_with_icon "Visits", visits_path, icon_class: "visits" %>
+      </li>
+      <li>
+        <%= link_to_with_icon "Subjects", subjects_path, icon_class: "subjects" %>
+      </li>
+      <li>
+        <%= link_to_with_icon "Studies", studies_path, icon_class: "studies" %>
+      </li>
+      <li>
+        <%= link_to_with_icon "Stims", stimulations_path, icon_class: "stimulations" %>
+      </li>
+      <li>
+        <%= link_to_with_icon "Scans", scans_path, icon_class: "scans" %>
+      </li>
+      <li data-dropdown="#nav-admin-items">
+        <%= link_to_with_icon "Admin", "#", icon_class: "admin" %>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<% content_for :dropdowns do %>
+  <ul id="nav-admin-items" class="dropdown-menu has-tip anchor-right">
+    <li><%= link_to "Device Models", device_models_path %></li>
+    <li><%= link_to "Devices", devices_path %></li>
+    <li><%= link_to "Locations", locations_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Brain Areas", brain_areas_path %></li>
+    <li><%= link_to "Task Types", task_types_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Scan Types", scan_types_path %></li>
+    <li><%= link_to "Scan Subtypes", scan_sub_types_path %></li>
+    <li><%= link_to "Scan Formats", scan_formats_path %></li>
+
+    <li class="divider"></li>
+    <li><%= link_to "Stimulation Types", stimulation_types_path %></li>
+    <li><%= link_to "Stimulation Subtypes", stimulation_sub_types_path %></li>
+    <li><%= link_to "Stimulation Subsubtypes", stimulation_sub_sub_types_path %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Races", races_path %></li>
+    <li><%= link_to "Populations", populations_path %></li>
+    <li><%= link_to "Ethnicities", populations_path %></li>
   </ul>
-</nav>
+<% end %>

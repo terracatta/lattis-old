@@ -1,7 +1,6 @@
 <div id="masthead-container">
   <header id="masthead">
-      <%= image_tag 'lattis_logo_orange.png', class: 'logo' %>
-
+    <%= link_to image_tag('lattis_logo_orange.png', class: 'logo'), :root %>
       <nav id="user-nav" data-dropdown="#user-nav-items">
         <%= avatar(current_user, size: '32x32',include_name: true) %>
         <span class="arrow-down inverse user-nav-arrow"></span>
