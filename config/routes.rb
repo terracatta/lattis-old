@@ -47,6 +47,8 @@ Lattis::Application.routes.draw do
 
   resources :enrollments
 
+  resources :subjects
+
   devise_for :users
 
   #

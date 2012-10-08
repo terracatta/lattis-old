@@ -2,6 +2,73 @@ body {
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 12px;
   margin: 0;
+  min-width: 960px;
+  background-color: #ADBCE4;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  background-image: url('/assets/login_bg_medium.png');
+  background-size: cover;
+}
+
+a > span.link {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+
+  /* edit: added z-index */
+  z-index: 1;
+}
+
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #000;
+
+  &.inverse {
+    border-bottom: 5px solid #DCDDDE;
+  }
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
+
+  &.inverse {
+    border-top: 5px solid #DCDDDE;
+  }
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #000;
+
+  &.inverse {
+    border-left: 10px solid #DCDDDE;
+  }
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #000;
+
+  &.inverse {
+    border-right: 10px solid #DCDDDE;
+  }
 }
 
 img.logo {
@@ -12,15 +79,20 @@ img.logo {
 }
 
 div.flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
   margin: 0;
   color: #fff;
-  height: 45px;
+  height: 40px;
   font-size: 24px;
   text-align: center;
   text-shadow: 0 1px 3px #000;
   padding-top: 15px;
   border-bottom: 1px solid rgba(0,0,0,0.3);
-  background: #565E6F;
+  background: rgba(0,25,50, 0.6);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,7 +113,6 @@ div.flash {
   }
 }
 
-
 // Our basic button suitable for making things looks rather buttony
 //
 // :hover             - Subtle hover highlight.
@@ -52,56 +123,54 @@ div.flash {
 // Styleguide 1.0.1
 
 a.button, button.button, input.button, input[type="submit"].button, {
+  display: inline-block;
+  text-align: center;
+  min-width: 40px;
   cursor: pointer;
-  padding: 13px;
+  padding: 5px;
   font-size: 14px;
 
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 
-  -webkit-box-shadow:  0 1px rgba(0,0,0, 0.2), inset 0 1px rgba(255,255,255, 0.8);
-  -moz-box-shadow:  0 1px rgba(0,0,0, 0.2), inset 0 1px rgba(255,255,255, 0.8);
-  box-shadow:  0 1px rgba(0,0,0, 0.2), inset 0 1px rgba(255,255,255, 0.8);
+  -webkit-box-shadow:  0 1px rgba(0,0,0, 0.2), 0 1px #fff, inset 0 1px rgba(255,255,255, 0.8);
+  -moz-box-shadow:  0 1px rgba(0,0,0, 0.2), 0 1px #fff, inset 0 1px rgba(255,255,255, 0.8);
+  box-shadow:  0 1px rgba(0,0,0, 0.2), 0 1px #fff, inset 0 1px rgba(255,255,255, 0.8);
 
   border: 1px solid #555;
   color: #555;
   text-shadow: 0 1px rgba(255,255,255, 0.5);
-
-  background: #f4f4f4;
-  background: -moz-linear-gradient(top,  #f4f4f4 0%, #a5a5a5 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#a5a5a5));
-  background: -webkit-linear-gradient(top,  #f4f4f4 0%,#a5a5a5 100%);
-  background: -o-linear-gradient(top,  #f4f4f4 0%,#a5a5a5 100%);
-  background: -ms-linear-gradient(top,  #f4f4f4 0%,#a5a5a5 100%);
-  background: linear-gradient(to bottom,  #f4f4f4 0%,#a5a5a5 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#a5a5a5',GradientType=0 );
+  background: -moz-linear-gradient(top,  rgba(255,255,255,0.38) 0%, rgba(0,0,0,0.24) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.38)), color-stop(100%,rgba(0,0,0,0.24)));
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0.38) 0%,rgba(0,0,0,0.24) 100%);
+  background: -o-linear-gradient(top,  rgba(255,255,255,0.38) 0%,rgba(0,0,0,0.24) 100%);
+  background: -ms-linear-gradient(top,  rgba(255,255,255,0.38) 0%,rgba(0,0,0,0.24) 100%);
+  background: linear-gradient(to bottom,  rgba(255,255,255,0.38) 0%,rgba(0,0,0,0.24) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61ffffff', endColorstr='#3d000000',GradientType=0 );
 
   &:hover {
-   color: #333;
-   background: #e5e5e5;
-   background: -moz-linear-gradient(top,  #e5e5e5 0%, #939393 100%);
-   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#939393));
-   background: -webkit-linear-gradient(top,  #e5e5e5 0%,#939393 100%);
-   background: -o-linear-gradient(top,  #e5e5e5 0%,#939393 100%);
-   background: -ms-linear-gradient(top,  #e5e5e5 0%,#939393 100%);
-   background: linear-gradient(to bottom,  #e5e5e5 0%,#939393 100%);
-   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#939393',GradientType=0 );
+   color: rgba(0,0,0, 0.9);
+   background: -moz-linear-gradient(top,  rgba(255,255,255,0.3) 0%, rgba(0,0,0,0.36) 100%);
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.3)), color-stop(100%,rgba(0,0,0,0.36)));
+   background: -webkit-linear-gradient(top,  rgba(255,255,255,0.3) 0%,rgba(0,0,0,0.36) 100%);
+   background: -o-linear-gradient(top,  rgba(255,255,255,0.3) 0%,rgba(0,0,0,0.36) 100%);
+   background: -ms-linear-gradient(top,  rgba(255,255,255,0.3) 0%,rgba(0,0,0,0.36) 100%);
+   background: linear-gradient(to bottom,  rgba(255,255,255,0.3) 0%,rgba(0,0,0,0.36) 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4dffffff', endColorstr='#5c000000',GradientType=0 );
   }
 
   &:active {
-    color: #777;
-    background: #b5b5b5;
-    background: -moz-linear-gradient(top,  #b5b5b5 0%, #dbdbdb 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5b5b5), color-stop(100%,#dbdbdb));
-    background: -webkit-linear-gradient(top,  #b5b5b5 0%,#dbdbdb 100%);
-    background: -o-linear-gradient(top,  #b5b5b5 0%,#dbdbdb 100%);
-    background: -ms-linear-gradient(top,  #b5b5b5 0%,#dbdbdb 100%);
-    background: linear-gradient(to bottom,  #b5b5b5 0%,#dbdbdb 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5b5b5', endColorstr='#dbdbdb',GradientType=0 );
-
-    -webkit-box-shadow:  0 1px rgba(230,230,230, 0.3), inset 0 1px #000;
-    -moz-box-shadow:  0 1px rgba(255,255,255, 0.2), inset 0 1px #000;
+    color: rgba(0,0,0, 0.6);
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.25) 0%, rgba(255,255,255,0.3) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.25)), color-stop(100%,rgba(255,255,255,0.3)));
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.3) 100%);
+    background: -o-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.3) 100%);
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.3) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.25) 0%,rgba(255,255,255,0.3) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#4dffffff',GradientType=0 );
+    -webkit-box-shadow:  0 1px rgba(255,255,255, 0.3), 1px 0px rgba(230,230,230, 0.1), -1px 0px rgba(230,230,230, 0.1), inset 0 1px rgba(0,0,0,0.3), inset 1px 1px 8px rgba(0,0,0, 0.5);
+    -moz-box-shadow:  0 1px rgba(255,255,255, 0.3), 1px 0px rgba(230,230,230, 0.1), -1px 0px rgba(230,230,230, 0.1), inset 0 1px rgba(0,0,0,0.3), inset 1px 1px 8px rgba(0,0,0, 0.5);
     box-shadow:  0 1px rgba(255,255,255, 0.3), 1px 0px rgba(230,230,230, 0.1), -1px 0px rgba(230,230,230, 0.1), inset 0 1px rgba(0,0,0,0.3), inset 1px 1px 8px rgba(0,0,0, 0.5);
   }
 
@@ -143,6 +212,7 @@ a.button, button.button, input.button, input[type="submit"].button, {
   }
 
   &.block {
+    padding: 13px;
     width: 100%;
     display: block;
   }
