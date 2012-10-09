@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007060644) do
+ActiveRecord::Schema.define(:version => 20121009165033) do
+
+  create_table "adverse_events", :force => true do |t|
+    t.integer  "enrollment_id"
+    t.datetime "date"
+    t.text     "event_description"
+    t.boolean  "related"
+    t.boolean  "serious"
+    t.boolean  "unexpected"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "brain_areas", :force => true do |t|
     t.string   "name"
@@ -49,12 +60,14 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.string   "type"
     t.string   "serial"
     t.integer  "device_model_id"
-    t.integer  "stimulator_id"
+    t.integer  "tms_stimulator_id"
     t.integer  "coil_id"
-    t.integer  "stimulator_model_id"
+    t.integer  "tms_stimulator_model_id"
     t.integer  "coil_model_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.integer  "tdcs_stimulator_id"
+    t.integer  "tdcs_stimulator_model_id"
   end
 
   create_table "enrollments", :force => true do |t|
@@ -103,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
 
   create_table "motor_thresholds", :force => true do |t|
     t.string   "variety"
-    t.integer  "stimulator_id"
+    t.integer  "tms_stimulator_id"
     t.integer  "coil_id"
     t.float    "intensity"
     t.string   "determination"
@@ -184,16 +197,18 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
 
   create_table "stimulation_device_sessions", :force => true do |t|
     t.integer  "stimulation_session_id"
-    t.integer  "stimulator_id"
-    t.integer  "stimulator_model_id"
+    t.integer  "tms_stimulator_id"
+    t.integer  "tms_stimulator_model_id"
     t.integer  "coil_id"
     t.integer  "coil_model_id"
     t.integer  "subject_id"
     t.integer  "study_id"
     t.integer  "user_id"
     t.datetime "date"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.integer  "tdcs_stimulator_id"
+    t.integer  "tdcs_stimulator_model_id"
   end
 
   create_table "stimulation_sessions", :force => true do |t|
@@ -205,61 +220,62 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.datetime "date"
     t.boolean  "neuro_navigation_used"
     t.boolean  "cnbs_staff_used"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-  end
-
-  create_table "stimulation_sub_sub_types", :force => true do |t|
-    t.string   "name"
-    t.integer  "stimulation_sub_type_id"
-    t.float    "interpulse_interval"
-    t.float    "interburst_interval"
-    t.float    "intertrain_interval"
-    t.float    "frequency"
-    t.integer  "trains_count"
-    t.integer  "pulses_per_train"
-    t.integer  "bursts_per_train"
-    t.integer  "pulses_per_burst"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-  end
-
-  create_table "stimulation_sub_types", :force => true do |t|
-    t.string   "name"
-    t.integer  "stimulation_type_id"
-    t.float    "interpulse_interval"
-    t.float    "interburst_interval"
-    t.float    "intertrain_interval"
-    t.float    "frequency"
-    t.integer  "trains_count"
-    t.integer  "pulses_per_train"
-    t.integer  "bursts_per_train"
-    t.integer  "pulses_per_burst"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
-  create_table "stimulation_types", :force => true do |t|
-    t.string   "name"
-    t.float    "interpulse_interval"
-    t.float    "interburst_interval"
-    t.float    "intertrain_interval"
-    t.float    "frequency"
-    t.integer  "trains_count"
-    t.integer  "pulses_per_train"
-    t.integer  "bursts_per_train"
-    t.integer  "pulses_per_burst"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.integer  "stimulation_session"
+    t.integer  "pre_stimulation_headache_severity"
+    t.integer  "pre_stimulation_headache_relatedness"
+    t.integer  "post_stimulation_headache_severity"
+    t.integer  "post_stimulation_headache_relatedness"
+    t.integer  "pre_stimulation_neck_pain_severity"
+    t.integer  "pre_stimulation_neck_pain_relatedness"
+    t.integer  "post_stimulation_neck_pain_severity"
+    t.integer  "post_stimulation_neck_pain_relatedness"
+    t.integer  "pre_stimulation_scalp_pain_severity"
+    t.integer  "pre_stimulation_scalp_pain_relatedness"
+    t.integer  "post_stimulation_scalp_pain_severity"
+    t.integer  "post_stimulation_scalp_pain_relatedness"
+    t.integer  "pre_stimulation_scalp_burn_severity"
+    t.integer  "pre_stimulation_scalp_burn_relatedness"
+    t.integer  "post_stimulation_scalp_burn_severity"
+    t.integer  "post_stimulation_scalp_burn_relatedness"
+    t.integer  "pre_stimulation_hearing_impairment_severity"
+    t.integer  "pre_stimulation_hearing_impairment_relatedness"
+    t.integer  "post_stimulation_hearing_impairment_severity"
+    t.integer  "post_stimulation_hearing_impairment_relatedness"
+    t.integer  "pre_stimulation_cognition_severity"
+    t.integer  "pre_stimulation_cognition_relatedness"
+    t.integer  "post_stimulation_cognition_severity"
+    t.integer  "post_stimulation_cognition_relatedness"
+    t.integer  "pre_stimulation_concentration_severity"
+    t.integer  "pre_stimulation_concentration_relatedness"
+    t.integer  "post_stimulation_concentration_severity"
+    t.integer  "post_stimulation_concentration_relatedness"
+    t.integer  "pre_stimulation_mood_change_severity"
+    t.integer  "pre_stimulation_mood_change_relatedness"
+    t.integer  "post_stimulation_mood_change_severity"
+    t.integer  "post_stimulation_mood_change_relatedness"
+    t.integer  "pre_stimulation_seizure_severity"
+    t.integer  "pre_stimulation_seizure_relatedness"
+    t.integer  "post_stimulation_seizure_severity"
+    t.integer  "post_stimulation_seizure_relatedness"
+    t.string   "pre_stimilation_other_side_effect_name"
+    t.integer  "pre_stimulation_other_side_effect_severity"
+    t.integer  "pre_stimulation_other_side_effect_relatedness"
+    t.string   "post_stimilation_other_side_effect_name"
+    t.integer  "post_stimulation_other_side_effect_severity"
+    t.integer  "post_stimulation_other_side_effect_relatedness"
+    t.text     "staff_comment"
+    t.boolean  "eeg_performed"
   end
 
   create_table "stimulations", :force => true do |t|
     t.datetime "date"
     t.integer  "subject_id"
     t.integer  "study_id"
-    t.integer  "stimulation_type_id"
-    t.integer  "stimulation_sub_type_id"
-    t.integer  "stimulation_sub_sub_type_id"
+    t.integer  "tms_stimulation_type_id"
+    t.integer  "tms_stimulation_sub_type_id"
+    t.integer  "tms_stimulation_sub_sub_type_id"
     t.integer  "stimulation_device_session_id"
     t.integer  "stimulation_session_id"
     t.boolean  "sham"
@@ -276,8 +292,10 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.integer  "pulses_per_burst"
     t.float    "duration"
     t.boolean  "neuro_navigation_used"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.string   "polarity"
+    t.string   "side"
   end
 
   create_table "studies", :force => true do |t|
@@ -327,7 +345,7 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.integer  "scans_count"
     t.integer  "stimulation_device_sessions_count"
     t.integer  "stimulation_sessions_count"
-    t.integer  "stimulations_count"
+    t.integer  "tms_stimulations_count"
     t.integer  "age"
     t.string   "gender"
     t.boolean  "contactable"
@@ -335,6 +353,7 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.string   "weight"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+    t.integer  "tdcs_stimulations_count"
   end
 
   create_table "task_types", :force => true do |t|
@@ -352,6 +371,50 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
     t.string   "taskable_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "tms_stimulation_sub_sub_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "tms_stimulation_sub_type_id"
+    t.float    "interpulse_interval"
+    t.float    "interburst_interval"
+    t.float    "intertrain_interval"
+    t.float    "frequency"
+    t.integer  "trains_count"
+    t.integer  "pulses_per_train"
+    t.integer  "bursts_per_train"
+    t.integer  "pulses_per_burst"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  create_table "tms_stimulation_sub_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "tms_stimulation_type_id"
+    t.float    "interpulse_interval"
+    t.float    "interburst_interval"
+    t.float    "intertrain_interval"
+    t.float    "frequency"
+    t.integer  "trains_count"
+    t.integer  "pulses_per_train"
+    t.integer  "bursts_per_train"
+    t.integer  "pulses_per_burst"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  create_table "tms_stimulation_types", :force => true do |t|
+    t.string   "name"
+    t.float    "interpulse_interval"
+    t.float    "interburst_interval"
+    t.float    "intertrain_interval"
+    t.float    "frequency"
+    t.integer  "trains_count"
+    t.integer  "pulses_per_train"
+    t.integer  "bursts_per_train"
+    t.integer  "pulses_per_burst"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -381,6 +444,13 @@ ActiveRecord::Schema.define(:version => 20121007060644) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "visit_staff_rosters", :force => true do |t|
+    t.integer  "staff_id"
+    t.integer  "visit_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "visits", :force => true do |t|
     t.datetime "date"

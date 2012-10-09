@@ -1,6 +1,6 @@
 class StimulationSession < ActiveRecord::Base
   has_many :stimulation_device_sessions
-  has_many :motor_thresholds
+  has_many :motor_thresholds, through: :stimulation_device_sessions
 
   belongs_to :visit
   belongs_to :subject, counter_cache: true

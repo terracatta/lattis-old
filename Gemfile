@@ -11,6 +11,7 @@ gem "devise", '~> 2.1'
 gem 'gravtastic', '~> 3.2'
 gem 'jquery-rails'
 gem 'pg', '~> 0.14'
+gem 'simple_form', '~> 2.0.4'
 gem 'strong_parameters', '~> 0.1'
 
 # Gems used only in our test or development environments

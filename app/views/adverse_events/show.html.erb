@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Enrollment:</b>
+  <%= @adverse_event.enrollment_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @adverse_event.date %>
+</p>
+
+<p>
+  <b>Event description:</b>
+  <%= @adverse_event.event_description %>
+</p>
+
+<p>
+  <b>Related:</b>
+  <%= @adverse_event.related %>
+</p>
+
+<p>
+  <b>Serious:</b>
+  <%= @adverse_event.serious %>
+</p>
+
+<p>
+  <b>Unexpected:</b>
+  <%= @adverse_event.unexpected %>
+</p>
+
+
+<%= link_to 'Edit', edit_adverse_event_path(@adverse_event) %> |
+<%= link_to 'Back', adverse_events_path %>

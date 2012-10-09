@@ -1,4 +1,6 @@
 Lattis::Application.routes.draw do
+  resources :adverse_events
+
   resources :scan_sub_types
 
   resources :visits

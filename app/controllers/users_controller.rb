@@ -87,7 +87,7 @@ class UsersController < ApplicationController
         # Sign in the user by passing validation in case his password changed
         @user.update_attributes(needs_password_reset: false)
         sign_in @user, :bypass => true
-        format.html { redirect_to :back,
+        format.html { redirect_to back,
          notice: "User's password was successfully changed" }
         format.json { head :no_content }
       else
