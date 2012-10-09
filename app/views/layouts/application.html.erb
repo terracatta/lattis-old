@@ -11,11 +11,15 @@
   <%= render 'layouts/masthead' %>
   <%= render 'layouts/navigation' %>
   <div id="content-container">
-    <div id="content-glass">
       <div id="content">
-        <%= yield %>
+        <header class="content-header">
+          <%= yield :content_header %>
+        </header>
+        <div class="content-header-divider"></div>
+        <div class="content-main">
+          <%= yield %>
+        </div>
       </div>
-    </div>
     </div>
   </div>
   <%= yield :dropdowns %>
