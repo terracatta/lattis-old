@@ -220,3 +220,125 @@ a.button, button.button, input.button, input[type="submit"].button, {
     display: block;
   }
 }
+
+form > div {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+form label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #666;
+}
+
+form span.hint {
+  position: relative;
+  left: 2px;
+  top: 2px;
+  font-style: italic;
+  color: #888;
+}
+
+form span.error {
+  position: absolute;
+  top: 18px;
+  left: 320px;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px;
+  background: #d91218;
+  border: 1px solid #f68a5e;
+  box-shadow: 0 2px 8px rgba(0,0,0, 0.4);
+  text-transform: capitalize;
+}
+
+form span.error:after, span.error:before {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+form span.error:after {
+  border-color: rgba(229, 35, 31, 0);
+  border-right-color: #d91218;
+  border-width: 5px;
+  top: 50%;
+  margin-top: -5px;
+}
+
+div.input.field_with_errors {
+  color: red;
+   input {
+    border: 1px solid red;
+   }
+}
+
+form span.error:before {
+  border-color: rgba(251, 40, 32, 0);
+  border-right-color: #fb2820;
+  border-width: 6px;
+  top: 50%;
+  margin-top: -6px;
+}
+
+form input[type="password"], form input[type="text"], form input[type="email"]  {
+  &::-webkit-input-placeholder {
+    color:    #fafafa;
+    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+  }
+
+  &:-moz-placeholder {
+    color:    #fafafa;
+    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+  }
+
+  &:-ms-input-placeholder {
+    color:    #fafafa;
+    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+  }
+
+  &::input-placeholder {
+    color:    #fafafa;
+    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+  }
+
+  &:focus {
+    outline: none;
+    background: #eee;
+    color: #666;
+    border: 1px solid rgba(0,0,0,0.4);
+
+    -moz-box-shadow: inset 0 0 0 1px rgba(255,255,255,1), 0 1px rgba(255,255,255,0.2);
+    -webkit-box-shadow: inset 0 0 0 1px rgba(255,255,255,1), 0 1px rgba(255,255,255,0.2);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,1), 0 1px rgba(255,255,255,0.2);
+
+    &::-webkit-input-placeholder {
+      color: #999;
+    }
+  }
+  font-size: 16px;
+  display: block;
+  width: 272px;
+  line-height: 18px;
+  color: #fff;
+  padding: 8px;
+  border-radius: 2px;
+
+  -moz-box-shadow: 0 1px rgba(255,255,255,0.4), inset 1px 1px 7px rgba(0,0,0, 0.2);
+  -webkit-box-shadow: 0 1px rgba(255,255,255,0.4), inset 1px 1px 7px rgba(0,0,0, 0.2);
+  box-shadow: 0 1px rgba(255,255,255,0.4), inset 1px 1px 7px rgba(0,0,0, 0.2);
+
+  background: rgba(0,0,0,0.08);
+  border-top: 1px solid #000;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2);
+}
