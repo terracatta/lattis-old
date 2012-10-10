@@ -1,5 +1,5 @@
 <%= simple_form_for(@user) do |f| %>
-    <%= f.input :first_name, hint: "foo" %>
+    <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :email %>
     <%= f.input :position %>
@@ -7,6 +7,12 @@
   <% if can? :set_admin, @user %>
     <div class="field">
       <%= f.input :admin %>
+    </div>
+  <% end %>
+
+  <% if can? :disable, @user %>
+    <div class="field">
+      <%= f.input :enabled %>
     </div>
   <% end %>
 

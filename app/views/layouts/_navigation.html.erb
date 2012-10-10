@@ -28,6 +28,8 @@
 
 <% content_for :dropdowns do %>
   <ul id="nav-admin-items" class="dropdown-menu has-tip anchor-right">
+    <li><%= link_to "Users", users_path %></li>
+    <li class="divider"></li>
     <li><%= link_to "Device Models", device_models_path %></li>
     <li><%= link_to "Devices", devices_path %></li>
     <li><%= link_to "Locations", locations_path %></li>

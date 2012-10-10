@@ -89,7 +89,7 @@ class UsersController < ApplicationController
         sign_in @user, :bypass => true
         format.html {
           flash[:success] = "Password was successfully changed"
-          redirect_back
+          redirect_to @user
         }
         format.json { head :no_content }
       else

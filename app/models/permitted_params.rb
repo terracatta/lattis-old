@@ -1,4 +1,4 @@
-class PermittedParams < Struct.new(:params, :user)
+class PermittedParams < Struct.new(:params, :current_user)
 
   # Public: Defines permitted attributes for the user model. Primarily used
   # in a controller to setup the protected attributes.
@@ -21,11 +21,15 @@ class PermittedParams < Struct.new(:params, :user)
   def user_attributes(user)
     attribtutes = [ :first_name, :last_name, :position, :email ]
 
-    if user.can?(:set_admin, user)
+    if current_user.can?(:manage, user)
+      attribtutes.push(:enabled)
+    end
+
+    if current_user.can?(:set_admin, user)
       attribtutes.push(:admin)
     end
 
-    if user.can?(:update_password, user)
+    if current_user.can?(:update_password, user)
       attribtutes.push(:password, :password_confirmation, :current_password)
     end
 

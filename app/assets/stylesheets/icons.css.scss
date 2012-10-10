@@ -1,146 +1,167 @@
 @mixin dashboard {
   background: url('/assets/icons.png') no-repeat -1px -2px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 31px;
   height: 26px;
 }
 
 @mixin dashboard-hover {
   background: url('/assets/icons.png') no-repeat -1px -38px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 31px;
   height: 26px;
 }
 
 @mixin dashboard-active {
   background: url('/assets/icons.png') no-repeat -1px -77px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 31px;
   height: 26px;
 }
 
+@mixin search {
+  background: url('/assets/icons.png') no-repeat -837px -126px;
+  background-size: 859px 239px;
+  width: 21px;
+  height: 21px;
+}
+
+@mixin search-inactive {
+  background: url('/assets/icons.png') no-repeat -837px -171px;
+  background-size: 859px 239px;
+  width: 21px;
+  height: 21px;
+}
+
+@mixin search-inverted {
+  background: url('/assets/icons.png') no-repeat -836px -212px;
+  background-size: 859px 239px;
+  width: 23px;
+  height: 23px;
+}
+
 @mixin visits {
   background: url('/assets/icons.png') no-repeat -55px 0;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 30px;
   height: 28px;
 }
 
 @mixin visits-hover {
   background: url('/assets/icons.png') no-repeat -54px -37px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 30px;
   height: 28px;
 }
 
 @mixin visits-active {
   background: url('/assets/icons.png') no-repeat -54px -76px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 30px;
   height: 28px;
 }
 
 @mixin studies {
   background: url('/assets/icons.png') no-repeat -108px 0;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 27px;
   height: 29px;
 }
 
 @mixin studies-hover {
   background: url('/assets/icons.png') no-repeat -108px -36px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 28px;
   height: 29px;
 }
 
 @mixin studies-active {
   background: url('/assets/icons.png') no-repeat -108px -76px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 28px;
   height: 29px;
 }
 
 @mixin subjects {
   background: url('/assets/icons.png') no-repeat -160px -3px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 36px;
   height: 23px;
 }
 
 @mixin subjects-hover {
   background: url('/assets/icons.png') no-repeat -159px -39px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 36px;
   height: 23px;
 }
 
 @mixin subjects-active {
   background: url('/assets/icons.png') no-repeat -159px -78px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 36px;
   height: 23px;
 }
 
 @mixin admin {
   background: url('/assets/icons.png') no-repeat -220px -3px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 28px;
   height: 28px;
 }
 
 @mixin admin-hover {
   background: url('/assets/icons.png') no-repeat -221px -39px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 28px;
   height: 28px;
 }
 
 @mixin admin-active {
   background: url('/assets/icons.png') no-repeat -221px -76px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 28px;
   height: 28px;
 }
 
 @mixin scans {
   background: url('/assets/icons.png') no-repeat -274px -3px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 28px;
   height: 28px;
 }
 
 @mixin scans-hover {
   background: url('/assets/icons.png') no-repeat -274px -40px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 28px;
   height: 28px;
 }
 
 @mixin scans-active {
   background: url('/assets/icons.png') no-repeat -274px -77px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 28px;
   height: 27px;
 }
 
 @mixin stimulations {
   background: url('/assets/icons.png') no-repeat -321px -3px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 32px;
   height: 30px;
 }
 
 @mixin stimulations-hover {
   background: url('/assets/icons.png') no-repeat -321px -38px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 32px;
   height: 30px;
 }
 
 @mixin stimulations-active {
   background: url('/assets/icons.png') no-repeat -321px -74px;
-  background-size: 554px 237px;
+  background-size: 859px 239px;
   width: 32px;
   height: 30px;
 }
@@ -206,6 +227,16 @@
 i {
   font-style: normal;
   display: inline-block;
+
+  &.search {
+      @include search;
+    &.search.inactive {
+      @include search-inactive;
+    }
+    &.search.inverted {
+      @include search-inverted;
+    }
+  }
 
   &.dashboard {
       @include dashboard;

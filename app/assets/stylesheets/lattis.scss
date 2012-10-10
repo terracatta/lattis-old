@@ -286,7 +286,8 @@ form span.error:before {
   margin-top: -6px;
 }
 
-form input[type="password"], form input[type="text"], form input[type="email"]  {
+div.dataTables_filter, form {
+  input[type="password"], input[type="text"], input[type="email"]  {
   &::-webkit-input-placeholder {
     color:    #fafafa;
     font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -342,3 +343,6 @@ form input[type="password"], form input[type="text"], form input[type="email"]  
   border-bottom: 1px solid rgba(0,0,0,0.1);
   border: 1px solid rgba(0,0,0,0.2);
 }
+
+}
+
