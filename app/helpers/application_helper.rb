@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+  def pretty_time(time)
+    time ||= Time.now
+    formatted_time = time.strftime('%m/%d/%y %I:%M %p')
+  end
+
 
   def button(*args, &block)
     options      = args[1] || {}

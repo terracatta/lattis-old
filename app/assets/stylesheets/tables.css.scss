@@ -15,7 +15,7 @@ table {
     text-align: left;
     text-transform: lowercase;
 
-    &:active {
+    &:active, &:focus {
       outline: none;
     }
   }
@@ -55,8 +55,14 @@ table {
   }
 }
 
+div.dataTables_wrapper {
+  position: relative;
+}
+
 div.dataTables_info {
-  float: right;
+  position: absolute;
+  top: 25px;
+  right: 5px;
 }
 
 div.dataTables_filter {

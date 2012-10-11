@@ -1,29 +1,8 @@
-<%= form_for(@brain_area) do |f| %>
-  <% if @brain_area.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@brain_area.errors.count, "error") %> prohibited this brain_area from being saved:</h2>
+<%= simple_form_for(@brain_area) do |f| %>
+    <%= f.input :name, hint: "Ex: Dorsolateral Prefrontal Cortex" %>
+    <%= f.input :short_name, hint: "Ex: DLPFC" %>
+    <%= f.input :hemisphere, :collection => ['Left', 'Right'] %>
 
-      <ul>
-      <% @brain_area.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :short_name %><br />
-    <%= f.text_field :short_name %>
-  </div>
-  <div class="field">
-    <%= f.label :hemisphere %><br />
-    <%= f.text_field :hemisphere %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= button "Cancel" , @brain_area %>
+    <%= f.button :submit, class: "button bright" %>
 <% end %>

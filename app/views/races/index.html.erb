@@ -1,23 +1,31 @@
-<h1>Listing races</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @races.each do |race| %>
-  <tr>
-    <td><%= race.name %></td>
-    <td><%= link_to 'Show', race %></td>
-    <td><%= link_to 'Edit', edit_race_path(race) %></td>
-    <td><%= link_to 'Destroy', race, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :content_header do %>
+   <h1>Races</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, Race %>
+          <%= button "Add New Races", new_race_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 <% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Last Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @races.each do |race| %>
+      <tr data-url="<%= url_for race %>">
+        <td><%= race.name %></td>
+        <td><%= pretty_time race.created_at %></td>
+        <td><%= pretty_time race.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Race', new_race_path %>

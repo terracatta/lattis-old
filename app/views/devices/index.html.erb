@@ -6,9 +6,6 @@
     <th>Type</th>
     <th>Serial</th>
     <th>Device model</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @devices.each do |device| %>
@@ -17,9 +14,6 @@
     <td><%= device.type %></td>
     <td><%= device.serial %></td>
     <td><%= device.device_model_id %></td>
-    <td><%= link_to 'Show', device %></td>
-    <td><%= link_to 'Edit', edit_device_path(device) %></td>
-    <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

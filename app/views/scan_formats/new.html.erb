@@ -1,5 +1,7 @@
-<h1>New scan_format</h1>
-
+<% content_for :content_header do %>
+   <h1>
+    <%= link_to('Scan Format', scan_formats_path) %>
+    / New Scan Format
+   </h1>
+<% end %>
 <%= render 'form' %>
-
-<%= link_to 'Back', scan_formats_path %>

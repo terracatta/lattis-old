@@ -1,5 +1,5 @@
-<h1>New location</h1>
+<% content_for :content_header do %>
+   <h1><%= link_to('Locations', locations_path) %> / New Location</h1>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', locations_path %>

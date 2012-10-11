@@ -1,25 +1,31 @@
-<h1>Listing populations</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @populations.each do |population| %>
-  <tr>
-    <td><%= population.name %></td>
-    <td><%= population.description %></td>
-    <td><%= link_to 'Show', population %></td>
-    <td><%= link_to 'Edit', edit_population_path(population) %></td>
-    <td><%= link_to 'Destroy', population, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :content_header do %>
+   <h1>Populations</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, Population %>
+          <%= button "Add New Population", new_population_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 <% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Last Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @populations.each do |population| %>
+      <tr data-url="<%= url_for population %>">
+        <td><%= population.name %></td>
+        <td><%= pretty_time population.created_at %></td>
+        <td><%= pretty_time population.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Population', new_population_path %>

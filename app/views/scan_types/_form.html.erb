@@ -1,25 +1,6 @@
-<%= form_for(@scan_type) do |f| %>
-  <% if @scan_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@scan_type.errors.count, "error") %> prohibited this scan_type from being saved:</h2>
-
-      <ul>
-      <% @scan_type.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@scan_type) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= button "Cancel" , @scan_type %>
+    <%= f.button :submit, class: "button bright" %>
 <% end %>

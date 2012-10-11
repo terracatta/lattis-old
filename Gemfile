@@ -19,6 +19,7 @@ gem 'strong_parameters', '~> 0.1'
 # Gems used only in our test or development environments
 
 group :test, :development do
+  gem 'thin'
   gem 'faker'
   gem 'letter_opener'
 end

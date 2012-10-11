@@ -1,6 +1,4 @@
-<h1>Editing race</h1>
-
+<% content_for :content_header do %>
+   <h1><%= link_to('Races', races_path) %> / Editing <%= @race.name %></h1>
+<% end %>
 <%= render 'form' %>
-
-<%= link_to 'Show', @race %> |
-<%= link_to 'Back', races_path %>

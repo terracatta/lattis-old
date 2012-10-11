@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header do %>
+  <h1>
+    <%= link_to('Scan Subtypes', scan_sub_types_path) %>
+     / <%= @scan_sub_type.name %>
+ </h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :edit, @scan_sub_type %>
+          <%= button "Edit", edit_scan_sub_type_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :destroy, @scan_sub_type %>
+          <%= button "Destroy", @scan_sub_type, method: :delete, data: {
+            confirm: 'This will permanently destroy the current item. Are you sure?'
+          } %>
+        <% end %>
+      </li>
+    </ul>
+</nav>
+<% end %>
 
 <p>
   <b>Name:</b>
@@ -12,9 +33,5 @@
 
 <p>
   <b>Scan type:</b>
-  <%= @scan_sub_type.scan_type_id %>
+  <%= link_to @scan_sub_type.scan_type.name, @scan_sub_type.scan_type %>
 </p>
-
-
-<%= link_to 'Edit', edit_scan_sub_type_path(@scan_sub_type) %> |
-<%= link_to 'Back', scan_sub_types_path %>

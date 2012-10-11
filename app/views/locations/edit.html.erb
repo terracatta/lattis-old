@@ -1,6 +1,5 @@
-<h1>Editing location</h1>
+<% content_for :content_header do %>
+   <h1><%= link_to('Locations', locations_path) %> / Editing <%= @location.name %></h1>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @location %> |
-<%= link_to 'Back', locations_path %>

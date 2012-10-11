@@ -1,10 +1,28 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header do %>
+  <h1>
+   <%= link_to('Races', races_path) %> /
+   <%= @race.name %>
+ </h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :edit, @race %>
+          <%= button "Edit", edit_race_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :destroy, @race %>
+          <%= button 'Destroy', @race,
+           method: :delete, data: {
+            confirm: 'This will permanently destroy the current item. Are you sure?'
+          } %>
+        <% end %>
+      </li>
+    </ul>
+</nav>
+<% end %>
 
 <p>
   <b>Name:</b>
   <%= @race.name %>
 </p>
-
-
-<%= link_to 'Edit', edit_race_path(@race) %> |
-<%= link_to 'Back', races_path %>
