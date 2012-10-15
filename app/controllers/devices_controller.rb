@@ -5,6 +5,9 @@ class DevicesController < ApplicationController
   # GET /devices.json
   def index
     @devices = Device.all
+    @tms_stimulators = TmsStimulator.all
+    @coils = Coil.all
+    @tdcs_coils = TdcsStimulator.all
 
     @sidebar = true
 

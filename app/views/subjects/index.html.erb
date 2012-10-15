@@ -1,0 +1,43 @@
+<% content_for :content_header do %>
+   <h1>Subjects</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, Subject %>
+          <%= button "Add New Subject", new_subject_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+<% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>MRN #</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Contactable?</th>
+      <th># Visits</th>
+      <th># Enrolled</th>
+      <th>Created At</th>
+      <th>Last Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr data-url="<%= url_for subject %>">
+        <td><%= subject.mrn %></td>
+        <td><%= subject.last_name %>, <%= subject.first_name %></td>
+        <td><%= subject.age %></td>
+        <td><%= subject.gender[0].upcase %></td>
+        <td><%= subject.contactable %></td>
+        <td><%= subject.visits_count %></td>
+        <td><%= subject.enrollments_count %></td>
+        <td><%= pretty_time subject.created_at %></td>
+        <td><%= pretty_time subject.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

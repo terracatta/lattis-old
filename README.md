@@ -1,4 +1,3 @@
-# Lattis
 A Beautiful Rails-based Patient Research Information System
 
 ## Description

@@ -16,8 +16,16 @@
           <%= yield :content_header %>
         </header>
         <div class="content-header-divider"></div>
-        <div class="content-main">
-          <%= yield %>
+        <div class="content-main <%= "content-has-sidebar" if @sidebar %>">
+          <% if @sidebar %>
+            <nav class="secondary-navigation">
+              <%= yield :sidebar %>
+            </nav>
+          <% end %>
+          <div class="content-inner">
+            <%= yield %>
+          </div>
+          <div style="clear: both;"></div>
         </div>
       </div>
     </div>

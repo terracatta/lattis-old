@@ -22,6 +22,41 @@ a > span.link {
   z-index: 1;
 }
 
+// override the chosen container
+.chzn-container {
+  display: block;
+}
+
+.chzn-container-multi .chzn-choices {
+  border-radius: 2px;
+  min-height: 35px;
+  -moz-box-shadow: 0 1px rgba(255, 255, 255, 0.4), inset 1px 1px 7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.4), inset 1px 1px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px rgba(255, 255, 255, 0.4), inset 1px 1px 7px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.08);
+  border-top: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.chzn-container-multi .chzn-choices .search-field .default {
+  padding-top: 10px;
+  color:    #fafafa;
+  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+
+//date selector
+div.input.date {
+  .chzn-container {
+    display: inline-block;
+  }
+  select.date-selector {
+    width: 146px;
+    &:first-child { width: 90px; }
+    &:last-child { width: 50px; }
+  }
+}
 
 .arrow-up {
   width: 0;
@@ -159,6 +194,12 @@ a.button, button.button, input.button, input[type="submit"].button, {
   background: -ms-linear-gradient(top,  #f4f4f4 0%,#a5a5a5 100%);
   background: linear-gradient(to bottom,  #f4f4f4 0%,#a5a5a5 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#a5a5a5',GradientType=0 );
+
+  span.arrow-down {
+    display: inline-block;
+    top: -3px;
+    position: relative;
+  }
 
   &:hover {
    color: #555;

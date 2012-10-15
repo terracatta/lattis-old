@@ -4,12 +4,23 @@ var Lattis = {
     Lattis.wireFlashMessages();
     Lattis.wireNavSelection();
     Lattis.wireDataTables();
+    Lattis.wireChosen();
+  },
+
+  wireChosen: function() {
+    $(".js-chosen").chosen()
   },
 
   wireNavSelection: function() {
     $('#primary-nav ul > li > a').each(function(index) {
       if (document.URL == this.href) {
         $(this).parent('li').addClass('selected');
+      }
+    });
+
+    $('nav.secondary-navigation ul > li > a').each(function(index) {
+      if (document.URL == this.href) {
+        $(this).parent('li').addClass('active');
       }
     });
   },

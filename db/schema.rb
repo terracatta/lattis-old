@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121009165033) do
+ActiveRecord::Schema.define(:version => 20121015031006) do
 
   create_table "adverse_events", :force => true do |t|
     t.integer  "enrollment_id"
@@ -354,6 +354,7 @@ ActiveRecord::Schema.define(:version => 20121009165033) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "tdcs_stimulations_count"
+    t.integer  "enrollments_count"
   end
 
   create_table "task_types", :force => true do |t|
