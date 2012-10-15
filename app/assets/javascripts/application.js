@@ -16,5 +16,5 @@
 //= require jquery.viewport
 //= require jquery.chosen
 //= require dataTables/jquery.dataTables
-//= require dataTables/bootstrap
+//= require datatables/bootstrap
 //= require lattis.js
