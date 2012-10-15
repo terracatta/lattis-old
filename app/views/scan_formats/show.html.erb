@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header do %>
+  <h1>
+    <%= link_to('Scan Formats', scan_formats_path) %>
+     / <%= @scan_format.name %>
+ </h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :edit, @scan_format %>
+          <%= button "Edit", edit_scan_format_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :destroy, @scan_sub_type %>
+          <%= button "Destroy", @scan_sub_type, method: :delete, data: {
+            confirm: 'This will permanently destroy the current item. Are you sure?'
+          } %>
+        <% end %>
+      </li>
+    </ul>
+</nav>
+<% end %>
 
 <p>
   <b>Name:</b>
@@ -9,7 +30,3 @@
   <b>Description:</b>
   <%= @scan_format.description %>
 </p>
-
-
-<%= link_to 'Edit', edit_scan_format_path(@scan_format) %> |
-<%= link_to 'Back', scan_formats_path %>

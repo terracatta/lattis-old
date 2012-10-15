@@ -160,59 +160,59 @@ scan_sub_types = [
   }
 ].map { |params| ScanSubType.find_or_create_by_name(params) }
 
-stimulation_types = [
+tms_stimulation_types = [
   { name: "rTMS" },
   { name: "Single Pulse" },
   { name: "Paired Pulse" },
   { name: "Triple Pulse" }
-].map { |params| StimulationType.find_or_create_by_name(params) }
+].map { |params| TmsStimulationType.find_or_create_by_name(params) }
 
-stimulation_sub_types = [
+tms_stimulation_sub_types = [
   {
     name: "Theta Burst" ,
-    stimulation_type_id: "1"
+    tms_stimulation_type_id: "1"
   },
 
   {
     name: "Intrahemispheric Paired Pulse",
-    stimulation_type_id: "2"
+    tms_stimulation_type_id: "2"
    },
 
   {
     name: "Interhemispheric Paired Pulse",
-    stimulation_type_id: "2"
+    tms_stimulation_type_id: "2"
   },
-].map { |params| StimulationSubType.find_or_create_by_name(params) }
+].map { |params| TmsStimulationSubType.find_or_create_by_name(params) }
 
-stimulation_sub_sub_types = [
+tms_stimulation_sub_sub_types = [
   {
     name: "ICF",
-    stimulation_sub_type_id: "2"
+    tms_stimulation_sub_type_id: "2"
   },
 
   {
     name: "SIHI",
-    stimulation_sub_type_id: "3"
+    tms_stimulation_sub_type_id: "3"
   },
 
   {
     name: "LICI",
-    stimulation_sub_type_id: "2"
+    tms_stimulation_sub_type_id: "2"
   },
 
   {
     name: "LIHI",
-    stimulation_sub_type_id: "3"
+    tms_stimulation_sub_type_id: "3"
   },
 
   {
     name: "SICI",
-    stimulation_sub_type_id: "2"
+    tms_stimulation_sub_type_id: "2"
   },
 
   {
     name: "cTBS",
-    stimulation_sub_type_id: "1",
+    tms_stimulation_sub_type_id: "1",
     frequency: 50,
     trains_count: 1,
     pulses_per_burst: 3,
@@ -225,7 +225,7 @@ stimulation_sub_sub_types = [
 
   {
     name: "iTBS",
-    stimulation_sub_type_id: "1",
+    tms_stimulation_sub_type_id: "1",
     frequency: 50,
     trains_count: 20,
     pulses_per_burst: 3,
@@ -235,7 +235,7 @@ stimulation_sub_sub_types = [
     interpulse_interval: 2,
     intertrain_interval: 8000
   },
-].map { |params| StimulationSubSubType.find_or_create_by_name(params) }
+].map { |params| TmsStimulationSubSubType.find_or_create_by_name(params) }
 
 locations = [
   {
@@ -428,7 +428,7 @@ locations = [
   }
 ].map { |params| Location.find_or_create_by_name(params) }
 
-stimulator_models = [
+tms_stimulator_models = [
   { name: "Magstim Rapid 2" },
   { name: "MagPro" },
   { name: "Magstim Super Rapid" },
@@ -436,15 +436,28 @@ stimulator_models = [
   { name: "Nexstim" },
   { name: "Neuronetics Neurostar" },
   { name: "Magstim Monopulse Bistim" }
-].map { |params| StimulatorModel.find_or_create_by_name(params) }
+].map { |params| TmsStimulatorModel.find_or_create_by_name(params) }
 
-stimulators = [
+tdcs_stimulator_models = [
+  { name: "Chattanooga Ionto" },
+  { name: "MagStim Eldith" }
+].map { |params| TdcsStimulatorModel.find_or_create_by_name(params) }
+
+tms_stimulators = [
   {
     name: "Clinical Rapid 2 (Clinical Program Lab 3)",
     serial: (1..7).to_a.join,
-    stimulator_model_id: stimulator_models.first.id,
+    tms_stimulator_model_id: tms_stimulator_models.first.id,
   }
-].map { |params| Stimulator.find_or_create_by_name(params) }
+].map { |params| TmsStimulator.find_or_create_by_name(params) }
+
+tdcs_stimulators = [
+  {
+    name: "Clinical Program Ionto (Clinical Program Lab 5)",
+    serial: (1..7).to_a.join,
+    tdcs_stimulator_model_id: tdcs_stimulator_models.first.id,
+  }
+].map { |params| TmsStimulator.find_or_create_by_name(params) }
 
 coil_models = [
   { name: "Nexstim Monopulse" },

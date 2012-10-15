@@ -1,27 +1,40 @@
-<h1>Listing users</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Admin?</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @users.each do |user| %>
-  <tr>
-    <td><%= avatar(user, name_visible: true, size: "32x32") %></td>
-    <td><%= user.email %></td>
-    <td><%= user.admin? %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :content_header do %>
+   <h1>Users</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, User %>
+          <%= button "Add New User", new_user_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 <% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Position</th>
+      <th>User Type</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr data-url="<%= url_for user %>">
+        <td><%= image_tag user.gravatar_url, size: "20x20"%></td>
+        <td><%= user %></td>
+        <td><%= user.email %></td>
+        <td><%= user.position %></td>
+        <td><%= user.admin ? "Administrator": "Staff" %></td>
+        <td><%= user.enabled ? "Enabled": "Disabled" %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New User', new_user_path %>

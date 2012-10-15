@@ -1,0 +1,48 @@
+<%= simple_form_for(@subject) do |f| %>
+
+  <h2>Demographics</h2>
+  <%= f.input :mrn, label: "Medical Record #",
+  hint: "No dashes or spaces Ex: 1234567" %>
+
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+
+  <label>Date of Birth</label>
+  <%= f.input :date_of_birth, label: false,
+   input_html: { class: 'js-chosen date-selector' },
+   start_year: Time.now.year - 100, end_year: Time.now.year %>
+  <%= f.input :gender, collection: ['Male', 'Female'], input_html: { class: 'js-chosen'} %>
+  <%= f.association :ethnicity, input_html: { class: 'js-chosen' } %>
+  <%= f.association :race, input_html: { class: 'js-chosen' } %>
+  <%= f.input :handedness, collection: ['Left', 'Right', 'Ambidextrous'],
+   input_html: { class: 'js-chosen' } %>
+
+  <%= f.input :height, hint: "input in inches" %>
+  <%= f.input :weight, hint: "input in pounds" %>
+  <hr>
+
+  <h2>Flags</h2>
+  <%= f.input :contactable,
+       label: 'Patient wishes to be contacted for studies' %>
+  <%= f.input :tms_safe, label: 'Safe to perform TMS?' %>
+  <%= f.input :tms_safe_comment, label: 'If not safe describe reasons', input_html: { rows: 8 } %>
+
+  <h2>Diagnosis</h2>
+  <%= f.association :populations, hint: "Choose all that apply",
+   input_html: { class: 'js-chosen' } %>
+  <hr>
+
+  <h2>Contact Details</h2>
+  <%= f.input :email, hint: "Ex: jsmith@provider.org" %>
+  <%= f.input :phone, hint: "Ex: +1 (555) 123-4567" %>
+  <%= f.input :secondary_phone, hint: "Ex: +1 (555) 123-4567" %>    <%= f.input :address %>
+  <%= f.input :address2 %>
+  <%= f.input :city %>
+  <%= f.input :state, collection: us_states, input_html: { class: 'js-chosen' } %>
+  <%= f.input :zipcode %>
+  <hr>
+
+
+  <%= button "Cancel", @ethnicity %>
+  <%= f.button :submit, class: "button bright" %>
+<% end %>

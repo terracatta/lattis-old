@@ -106,15 +106,15 @@ namespace :db do
     #Create Fake Stimulation Device Sessions
     StimulationSession.all.each do |stimulation_session|
       (rand(5) + 1).times do
-        stimulator_model = StimulatorModel.all.sample
-        stimulator = stimulator_model.stimulators.sample
+        stimulator_model = TmsStimulatorModel.all.sample
+        stimulator = stimulator_model.tms_stimulators.sample
         StimulationDeviceSession.create(
           :stimulation_session_id => stimulation_session.id,
           :subject_id => stimulation_session.subject_id,
           :user_id => stimulation_session.user_id,
           :study_id => stimulation_session.study_id,
-          :stimulator_model_id => StimulatorModel.all.sample.id,
-          :stimulator_id => Stimulator.all.sample.id,
+          :tms_stimulator_model_id => TmsStimulatorModel.all.sample.id,
+          :tms_stimulator_id => TmsStimulator.all.sample.id,
           :coil_id => Coil.all.sample.id,
           :date => stimulation_session.date
         )
@@ -125,7 +125,7 @@ namespace :db do
           :variety => ['active', 'resting'].sample,
           :determination => ['visual', 'EMG'].sample,
           :stimulation_session_id => stimulation_session.id,
-          :stimulator_id => Stimulator.all.sample.id,
+          :tms_stimulator_id => TmsStimulator.all.sample.id,
           :coil_id => Coil.all.sample.id,
           :date => stimulation_session.date
         )
@@ -136,10 +136,10 @@ namespace :db do
     #Create Fake Stimulations
     StimulationDeviceSession.all.each do |stimulation_device_session|
      (rand(50) + 1).times do
-        stimulation_type = StimulationType.all.sample
+        stimulation_type = TmsStimulationType.all.sample
 
-        stimulation_sub_type = unless stimulation_type.stimulation_sub_types.empty?
-          stimulation_type.stimulation_sub_types.all.sample
+        stimulation_sub_type = unless stimulation_type.tms_stimulation_sub_types.empty?
+          stimulation_type.tms_stimulation_sub_types.all.sample
         else
           nil
         end
@@ -148,8 +148,8 @@ namespace :db do
           stimulation_sub_type ? stimulation_sub_type.id : nil
 
         stimulation_sub_sub_type = unless stimulation_sub_type.nil?
-          unless stimulation_sub_type.stimulation_sub_sub_types.empty?
-            stimulation_sub_type.stimulation_sub_sub_types.all.sample
+          unless stimulation_sub_type.tms_stimulation_sub_sub_types.empty?
+            stimulation_sub_type.tms_stimulation_sub_sub_types.all.sample
           else
             nil
           end
@@ -162,11 +162,11 @@ namespace :db do
 
         stimulation_session = stimulation_device_session.stimulation_session
 
-        stimulation = Stimulation.create(
+        stimulation = TmsStimulation.create(
           :date => stimulation_device_session.date,
-          :stimulation_type_id => stimulation_type.id,
-          :stimulation_sub_type_id => stimulation_sub_type_id,
-          :stimulation_sub_sub_type_id => stimulation_sub_sub_type_id,
+          :tms_stimulation_type_id => stimulation_type.id,
+          :tms_stimulation_sub_type_id => stimulation_sub_type_id,
+          :tms_stimulation_sub_sub_type_id => stimulation_sub_sub_type_id,
           :stimulation_session_id => stimulation_session.id,
           :stimulation_device_session_id => stimulation_device_session.id,
           :study_id => stimulation_session.id,
@@ -176,17 +176,7 @@ namespace :db do
           :intensity => ((0..100).to_a.sample) * 0.01,
           :duration => (40..3600).to_a.sample
         )
-
-        (rand(3 + 1)).times do
-          stimulation.tasks.create(
-            :task_type_id => TaskType.all.sample.id,
-            :subject_id => stimulation_device_session.subject_id,
-            :visit_id => stimulation_session.visit_id
-          )
-        end
-
       end
-
     end
 
     #Create Fake Scan Sessions

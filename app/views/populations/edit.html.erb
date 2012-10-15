@@ -1,6 +1,5 @@
-<h1>Editing population</h1>
+<% content_for :content_header do %>
+   <h1><%= link_to('Populations', populations_path) %> / Editing <%= @population.name %></h1>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @population %> |
-<%= link_to 'Back', populations_path %>

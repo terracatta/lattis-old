@@ -6,11 +6,8 @@ class ApplicationController < ActionController::Base
   skip_before_filter :check_for_password_reset, :if => :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to :back, alert: exception.message
-  end
-
-  rescue_from ActionController::RedirectBackError do
-    redirect_to root_path
+    flash[:error] = exception.message
+    redirect_back
   end
 
   #
@@ -22,6 +19,12 @@ class ApplicationController < ActionController::Base
   #
   def current_ability
     current_user.ability
+  end
+
+  def redirect_back
+    redirect_to :back
+    rescue ActionController::RedirectBackError
+      redirect_to root_path
   end
 
 private

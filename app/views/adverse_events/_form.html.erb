@@ -1,0 +1,16 @@
+<%= simple_form_for(@adverse_event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :enrollment_id %>
+    <%= f.input :date %>
+    <%= f.input :event_description %>
+    <%= f.input :related %>
+    <%= f.input :serious %>
+    <%= f.input :unexpected %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

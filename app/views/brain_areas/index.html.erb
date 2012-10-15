@@ -1,27 +1,35 @@
-<h1>Listing brain_areas</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Short name</th>
-    <th>Hemisphere</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @brain_areas.each do |brain_area| %>
-  <tr>
-    <td><%= brain_area.name %></td>
-    <td><%= brain_area.short_name %></td>
-    <td><%= brain_area.hemisphere %></td>
-    <td><%= link_to 'Show', brain_area %></td>
-    <td><%= link_to 'Edit', edit_brain_area_path(brain_area) %></td>
-    <td><%= link_to 'Destroy', brain_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :content_header do %>
+   <h1>Brain Areas</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, BrainArea %>
+          <%= button "Add New Brain Area", new_brain_area_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 <% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short name</th>
+      <th>Hemisphere</th>
+      <th>Created At</th>
+      <th>Last Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @brain_areas.each do |brain_area| %>
+      <tr data-url="<%= url_for brain_area %>">
+        <td><%= brain_area.name %></td>
+        <td><%= brain_area.short_name %></td>
+        <td><%= brain_area.hemisphere %></td>
+        <td><%= pretty_time brain_area.created_at %></td>
+        <td><%= pretty_time brain_area.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Brain area', new_brain_area_path %>

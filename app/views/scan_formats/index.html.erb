@@ -1,25 +1,31 @@
-<h1>Listing scan_formats</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @scan_formats.each do |scan_format| %>
-  <tr>
-    <td><%= scan_format.name %></td>
-    <td><%= scan_format.description %></td>
-    <td><%= link_to 'Show', scan_format %></td>
-    <td><%= link_to 'Edit', edit_scan_format_path(scan_format) %></td>
-    <td><%= link_to 'Destroy', scan_format, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :content_header do %>
+   <h1>Scan Formats</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, ScanFormat %>
+          <%= button "Add New Scan Format", new_scan_format_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 <% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Last Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scan_formats.each do |scan_format| %>
+      <tr data-url="<%= url_for scan_format %>">
+        <td><%= scan_format.name %></td>
+        <td><%= pretty_time scan_format.created_at %></td>
+        <td><%= pretty_time scan_format.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Scan format', new_scan_format_path %>

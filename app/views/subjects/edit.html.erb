@@ -1,0 +1,5 @@
+<% content_for :content_header do %>
+   <h1><%= link_to('Subjects', subjects_path) %> / Editing <%= @subject.name %></h1>
+<% end %>
+
+<%= render 'form' %>

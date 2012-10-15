@@ -1,4 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header do %>
+  <h1>
+   <%= link_to('Locations', locations_path) %> /
+   <%= @location.name %>
+ </h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :edit, @location %>
+          <%= button "Edit", edit_location_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :destroy, @location %>
+          <%= button 'Destroy', @location,
+           method: :delete, data: {
+            confirm: 'This will permanently destroy the current item. Are you sure?'
+          } %>
+        <% end %>
+      </li>
+    </ul>
+</nav>
+<% end %>
 
 <p>
   <b>Name:</b>
@@ -16,8 +38,8 @@
 </p>
 
 <p>
-  <b>Room string:</b>
-  <%= @location.room_string %>
+  <b>Room number:</b>
+  <%= @location.room_number %>
 </p>
 
 <p>
@@ -29,7 +51,3 @@
   <b>Phone:</b>
   <%= @location.phone %>
 </p>
-
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>

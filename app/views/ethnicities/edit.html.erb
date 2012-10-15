@@ -1,6 +1,5 @@
-<h1>Editing ethnicity</h1>
+<% content_for :content_header do %>
+   <h1><%= link_to('Ethnicities', ethnicities_path) %> / Editing <%= @ethnicity.name %></h1>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @ethnicity %> |
-<%= link_to 'Back', ethnicities_path %>

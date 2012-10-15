@@ -1,6 +1,14 @@
-<h1>Editing user</h1>
+<% content_for :content_header do %>
+  <%= image_tag @user.gravatar_url,
+   size: "32x32", style: 'float: left;  padding-right: 10px;' %>
+   <h1><%= link_to('Users', users_path) %> / Editing <%= @user %></h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <%= button "Change Password", change_password_user_path, button_type: "bright" %>
+      </li>
+    </ul>
+</nav>
+<% end %>
 
 <%= render 'form' %>
-<%= link_to 'Change Password', change_password_user_path(@user) %>
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', user_path %>

@@ -1,33 +1,8 @@
-<%= form_for(@device) do |f| %>
-  <% if @device.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
-
-      <ul>
-      <% @device.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :serial %><br />
-    <%= f.text_field :serial %>
-  </div>
-  <div class="field">
-    <%= f.label :device_model_id %><br />
-    <%= f.number_field :device_model_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@device) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :serial %>
+    <%= f.input :type, :collection => ['TmsStimulator', 'Coil', 'TdcsStimulator'] %>
+    <%= f.association :device_model %>
+    <%= button "Cancel" , @device %>
+    <%= f.button :submit, class: "button bright" %>
 <% end %>

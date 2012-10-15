@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
   belongs_to :staff_position
   belongs_to :role
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+
   # Public: Load/Cache user's abilities object. This is useful so that we can
   # call "can?" and "cannot?" on users directly.
   #

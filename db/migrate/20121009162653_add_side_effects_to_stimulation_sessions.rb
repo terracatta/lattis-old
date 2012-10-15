@@ -1,0 +1,49 @@
+class AddSideEffectsToStimulationSessions < ActiveRecord::Migration
+  def change
+    add_column :stimulation_sessions, :stimulation_session, :integer
+    add_column :stimulation_sessions, :pre_stimulation_headache_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_headache_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_headache_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_headache_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimulation_neck_pain_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_neck_pain_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_neck_pain_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_neck_pain_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimulation_scalp_pain_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_scalp_pain_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_scalp_pain_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_scalp_pain_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimulation_scalp_burn_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_scalp_burn_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_scalp_burn_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_scalp_burn_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimulation_hearing_impairment_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_hearing_impairment_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_hearing_impairment_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_hearing_impairment_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimulation_cognition_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_cognition_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_cognition_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_cognition_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimulation_concentration_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_concentration_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_concentration_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_concentration_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimulation_mood_change_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_mood_change_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_mood_change_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_mood_change_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimulation_seizure_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_seizure_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimulation_seizure_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_seizure_relatedness, :integer
+    add_column :stimulation_sessions, :pre_stimilation_other_side_effect_name, :string
+    add_column :stimulation_sessions, :pre_stimulation_other_side_effect_severity, :integer
+    add_column :stimulation_sessions, :pre_stimulation_other_side_effect_relatedness, :integer
+    add_column :stimulation_sessions, :post_stimilation_other_side_effect_name, :string
+    add_column :stimulation_sessions, :post_stimulation_other_side_effect_severity, :integer
+    add_column :stimulation_sessions, :post_stimulation_other_side_effect_relatedness, :integer
+    add_column :stimulation_sessions, :staff_comment, :text
+    add_column :stimulation_sessions, :eeg_performed, :boolean
+  end
+end

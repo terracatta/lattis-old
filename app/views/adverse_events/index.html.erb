@@ -1,0 +1,33 @@
+<h1>Listing adverse_events</h1>
+
+<table>
+  <tr>
+    <th>Enrollment</th>
+    <th>Date</th>
+    <th>Event description</th>
+    <th>Related</th>
+    <th>Serious</th>
+    <th>Unexpected</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @adverse_events.each do |adverse_event| %>
+  <tr>
+    <td><%= adverse_event.enrollment_id %></td>
+    <td><%= adverse_event.date %></td>
+    <td><%= adverse_event.event_description %></td>
+    <td><%= adverse_event.related %></td>
+    <td><%= adverse_event.serious %></td>
+    <td><%= adverse_event.unexpected %></td>
+    <td><%= link_to 'Show', adverse_event %></td>
+    <td><%= link_to 'Edit', edit_adverse_event_path(adverse_event) %></td>
+    <td><%= link_to 'Destroy', adverse_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Adverse event', new_adverse_event_path %>

@@ -1,29 +1,23 @@
-<h1>Listing devices</h1>
+<%= render 'header' %>
 
-<table>
+<table class="datatable">
+  <thead>
   <tr>
     <th>Name</th>
     <th>Type</th>
     <th>Serial</th>
     <th>Device model</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
+  </thead>
 
+  <tbody>
 <% @devices.each do |device| %>
-  <tr>
+  <tr data-url="">
     <td><%= device.name %></td>
     <td><%= device.type %></td>
     <td><%= device.serial %></td>
     <td><%= device.device_model_id %></td>
-    <td><%= link_to 'Show', device %></td>
-    <td><%= link_to 'Edit', edit_device_path(device) %></td>
-    <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Device', new_device_path %>

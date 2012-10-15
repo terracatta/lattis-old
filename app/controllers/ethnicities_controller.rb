@@ -78,7 +78,7 @@ class EthnicitiesController < ApplicationController
     @ethnicity.destroy
 
     respond_to do |format|
-      format.html { redirect_to ethnicities_url }
+      format.html { redirect_to ethnicities_url, notice: 'Ethnicity was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
