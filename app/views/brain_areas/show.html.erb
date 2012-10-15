@@ -1,4 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header do %>
+  <h1>
+   <%= link_to('Brain Areas', brain_areas_path) %> /
+   <%= @brain_area.name %>
+ </h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :edit, @brain_areas %>
+          <%= button "Edit", edit_brain_area_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :destroy, @brain_areas %>
+          <%= button 'Destroy', @brain_areas,
+           method: :delete, data: {
+            confirm: 'This will permanently destroy the current item. Are you sure?'
+          } %>
+        <% end %>
+      </li>
+    </ul>
+</nav>
+<% end %>
 
 <p>
   <b>Name:</b>
@@ -12,9 +34,5 @@
 
 <p>
   <b>Hemisphere:</b>
-  <%= @brain_area.hemisphere %>
+  <%= @brain_area.hemisphere.capitalize %>
 </p>
-
-
-<%= link_to 'Edit', edit_brain_area_path(@brain_area) %> |
-<%= link_to 'Back', brain_areas_path %>

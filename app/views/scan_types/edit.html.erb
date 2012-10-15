@@ -1,6 +1,7 @@
-<h1>Editing scan_type</h1>
+<% content_for :content_header do %>
+   <h1>
+    <%= link_to('Scan Types', scan_types_path) %> / Editing <%= @scan_type.name %>
+   </h1>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @scan_type %> |
-<%= link_to 'Back', scan_types_path %>

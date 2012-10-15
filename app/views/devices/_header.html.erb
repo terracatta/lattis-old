@@ -1,0 +1,41 @@
+<% content_for :content_header do %>
+   <h1>Devices</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, Device %>
+          <%= button "Add New Device <span class='arrow-down'></span>".html_safe,
+           "#", :"data-dropdown" => "#device-new-items" %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+<% end %>
+
+<% content_for :dropdowns do %>
+  <ul id="device-new-items" class="dropdown-menu has-tip anchor-right">
+    <li><%= link_to "New TMS Stimulator", new_tms_stimulator_path %></li>
+    <li><%= link_to "New TMS Coil", new_coil_path %></li>
+    <li><%= link_to "New TDCS Stimulator", new_tdcs_stimulator_path %></li>
+  </ul>
+<% end %>
+<% content_for :sidebar do %>
+  <ul>
+    <li>
+      <%= link_to("<span class='link'></span>All Devices".html_safe, devices_path) %>
+      <span class="count"><%= @devices.count %></span>
+    </li>
+    <li>
+     <%= link_to("<span class='link'></span>TMS Stimulators".html_safe, tms_stimulators_path) %>
+     <span class="count"><%= @tms_stimulators.count %></span>
+    </li>
+    <li>
+      <%= link_to("<span class='link'></span>TMS Coils".html_safe, coils_path) %>
+      <span class="count"><%= @coils.count %></span>
+    </li>
+    <li>
+      <%= link_to("<span class='link'></span>TDCS Stimulators".html_safe, tdcs_stimulators_path) %>
+      <span class="count"><%= @tdcs_coils.count  %></span>
+    </li>
+  </ul>
+<% end %>

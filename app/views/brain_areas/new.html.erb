@@ -1,5 +1,5 @@
-<h1>New brain_area</h1>
+<% content_for :content_header do %>
+   <h1><%= link_to('Brain Areas', brain_areas_path) %> / New Brain Area</h1>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', brain_areas_path %>

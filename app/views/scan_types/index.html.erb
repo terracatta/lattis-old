@@ -1,25 +1,31 @@
-<h1>Listing scan_types</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @scan_types.each do |scan_type| %>
-  <tr>
-    <td><%= scan_type.name %></td>
-    <td><%= scan_type.description %></td>
-    <td><%= link_to 'Show', scan_type %></td>
-    <td><%= link_to 'Edit', edit_scan_type_path(scan_type) %></td>
-    <td><%= link_to 'Destroy', scan_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :content_header do %>
+   <h1>Scan Types</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, ScanType %>
+          <%= button "Add New Scan Type", new_scan_type_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 <% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Last Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scan_types.each do |scan_type| %>
+      <tr data-url="<%= url_for scan_type %>">
+        <td><%= scan_type.name %></td>
+        <td><%= pretty_time scan_type.created_at %></td>
+        <td><%= pretty_time scan_type.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Scan type', new_scan_type_path %>

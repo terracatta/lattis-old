@@ -43,6 +43,7 @@ class BrainAreasController < ApplicationController
   # POST /brain_areas.json
   def create
     @brain_area = BrainArea.new(params[:brain_area])
+    @brain_area.hemisphere.downcase!
 
     respond_to do |format|
       if @brain_area.save

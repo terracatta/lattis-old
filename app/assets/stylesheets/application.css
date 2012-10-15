@@ -10,8 +10,10 @@
  *
  *= require_self
  *= require jquery.dropdown
+ *= require chosen
  *= require lattis
  *= require icons
-*= require layout
+ *= require layout
+ *= require tables
  *= require sessions
  */

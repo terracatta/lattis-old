@@ -1,0 +1,130 @@
+<% content_for :content_header do %>
+  <h1>
+   <%= link_to('Subjects', subjects_path) %> /
+   <%= @subject.name %>
+ </h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :edit, @subject %>
+          <%= button "Edit", edit_subject_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :destroy, @subject %>
+          <%= button 'Destroy', @subject,
+           method: :delete, data: {
+            confirm: 'This will permanently destroy the current item. Are you sure?'
+          } %>
+        <% end %>
+      </li>
+    </ul>
+</nav>
+<% end %>
+
+<h2>Demographics</h2>
+<p>
+  <b>Medical Record Number:</b>
+  <%= @subject.mrn %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @subject.name %>
+</p>
+
+<p>
+  <b>Date of Birth:</b>
+  <%= pretty_time @subject.date_of_birth %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @subject.gender %>
+</p>
+
+<p>
+  <b>Ethnicity:</b>
+  <%= @subject.ethnicity.name %>
+</p>
+
+<p>
+  <b>Race:</b>
+  <%= @subject.race.name %>
+</p>
+
+<p>
+  <b>Handedness:</b>
+  <%= @subject.handedness %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @subject.height %> inches
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @subject.weight %> lbs
+</p>
+
+<h2>Flags</h2>
+
+<p>
+  <b>Contactable:</b>
+  <%= @subject.contactable %>
+</p>
+
+<p>
+  <b>Safe to perform TMS?:</b>
+  <%= @subject.tms_safe? %>
+  <%= @subject.tms_safe_comment if @subject.tms_safe?  %>
+</p>
+
+<h2>Diagnosis</h2>
+
+<p>
+  <b>Diagnosis:</b>
+  <ul>
+    <% @subject.populations.each do |population| %>
+      <li><%= population.name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<h2>Contact Information</h2>
+
+<p>
+  <b>Phone:</b>
+  <%= @subject.phone %>
+</p>
+
+<p>
+  <b>Secondary Phone:</b>
+  <%= @subject.secondary_phone %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @subject.address %>
+</p>
+
+<p>
+  <b>Address 2:</b>
+  <%= @subject.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @subject.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @subject.state %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @subject.zipcode %>
+</p>

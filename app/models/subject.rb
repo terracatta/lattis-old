@@ -25,4 +25,21 @@ class Subject < ActiveRecord::Base
 
   belongs_to :ethnicity
   belongs_to :race
+
+  validates :mrn, format: { with: /^(?!0+$)\d{7}$/ }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :date_of_birth, presence: true
+  validates :gender, presence: true
+  validates :ethnicity, presence: true
+  validates :race, presence: true
+
+
+  # Public: Displays a suitable full name for a subject
+  #
+  # Returns a string of the subject's first name and last name
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end

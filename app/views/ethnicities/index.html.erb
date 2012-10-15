@@ -1,23 +1,31 @@
-<h1>Listing ethnicities</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @ethnicities.each do |ethnicity| %>
-  <tr>
-    <td><%= ethnicity.name %></td>
-    <td><%= link_to 'Show', ethnicity %></td>
-    <td><%= link_to 'Edit', edit_ethnicity_path(ethnicity) %></td>
-    <td><%= link_to 'Destroy', ethnicity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :content_header do %>
+   <h1>Ethnicities</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, Ethnicity %>
+          <%= button "Add New Ethnicity", new_ethnicity_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 <% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Last Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ethnicities.each do |ethnicity| %>
+      <tr data-url="<%= url_for ethnicity %>">
+        <td><%= ethnicity.name %></td>
+        <td><%= pretty_time ethnicity.created_at %></td>
+        <td><%= pretty_time ethnicity.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Ethnicity', new_ethnicity_path %>

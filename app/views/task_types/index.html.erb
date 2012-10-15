@@ -1,25 +1,31 @@
-<h1>Listing task_types</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @task_types.each do |task_type| %>
-  <tr>
-    <td><%= task_type.name %></td>
-    <td><%= task_type.description %></td>
-    <td><%= link_to 'Show', task_type %></td>
-    <td><%= link_to 'Edit', edit_task_type_path(task_type) %></td>
-    <td><%= link_to 'Destroy', task_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :content_header do %>
+   <h1>Task Types</h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :create, TaskType %>
+          <%= button "Add New Races", new_task_type_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 <% end %>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Last Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @task_types.each do |task_type| %>
+      <tr data-url="<%= url_for task_type %>">
+        <td><%= task_type.name %></td>
+        <td><%= pretty_time task_type.created_at %></td>
+        <td><%= pretty_time task_type.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Task type', new_task_type_path %>

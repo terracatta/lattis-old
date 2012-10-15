@@ -1,5 +1,7 @@
-<h1>New scan_sub_type</h1>
-
+<% content_for :content_header do %>
+   <h1>
+    <%= link_to('Scan Subtypes', scan_sub_types_path) %>
+    / New Scan Sub Type
+   </h1>
+<% end %>
 <%= render 'form' %>
-
-<%= link_to 'Back', scan_sub_types_path %>

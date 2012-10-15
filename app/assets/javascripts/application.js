@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.dropdown
+//= require jquery.viewport
+//= require jquery.chosen
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap
 //= require lattis.js

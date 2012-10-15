@@ -1,11 +1,21 @@
 Lattis::Application.routes.draw do
+  resources :tms_stimulators
+
+  resources :adverse_events
+
   resources :scan_sub_types
 
   resources :visits
 
   resources :device_models
 
-  resources :devices
+  resources :devices do
+    collection do
+      resources :tms_stimulators
+      resources :tdcs_stimulators
+      resources :coils
+    end
+  end
 
   resources :brain_areas
 

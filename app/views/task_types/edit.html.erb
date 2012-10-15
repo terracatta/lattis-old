@@ -1,6 +1,4 @@
-<h1>Editing task_type</h1>
-
+<% content_for :content_header do %>
+   <h1><%= link_to('Task Types', task_types_path) %> / Editing <%= @task_type.name %></h1>
+<% end %>
 <%= render 'form' %>
-
-<%= link_to 'Show', @task_type %> |
-<%= link_to 'Back', task_types_path %>

@@ -1,4 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% content_for :content_header do %>
+  <h1>
+   <%= link_to('Task Types', task_types_path) %> /
+   <%= @task_type.name %>
+ </h1>
+  <nav class="content-actions">
+    <ul>
+      <li>
+        <% if can? :edit, @task_type %>
+          <%= button "Edit", edit_task_type_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if can? :destroy, @task_type %>
+          <%= button 'Destroy', @task_type,
+           method: :delete, data: {
+            confirm: 'This will permanently destroy the current item. Are you sure?'
+          } %>
+        <% end %>
+      </li>
+    </ul>
+</nav>
+<% end %>
 
 <p>
   <b>Name:</b>
@@ -9,7 +31,3 @@
   <b>Description:</b>
   <%= @task_type.description %>
 </p>
-
-
-<%= link_to 'Edit', edit_task_type_path(@task_type) %> |
-<%= link_to 'Back', task_types_path %>
